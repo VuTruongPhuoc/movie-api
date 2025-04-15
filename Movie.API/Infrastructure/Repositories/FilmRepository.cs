@@ -8,7 +8,7 @@ namespace Movie.API.Infrastructure.Repositories
     public interface IFilmRepository : IGenericRepository<Film>
     {
         Task<List<Film>> GetAllAsync();
-        Task<Film> GetBySlugAsync(string slug);
+        Task<Film?> GetBySlugAsync(string slug);
 
         Task<PaginatedList<Film>> GetByTypeAsync(int pagenumber, int pagesize, int type);
         Task<PaginatedList<Film>> GetByCategoryAsync(int pagenumber, int pagesize, int category);
@@ -24,15 +24,15 @@ namespace Movie.API.Infrastructure.Repositories
         {
             _dbContext = dbContext;
             _filmSet = _dbContext.Set<Film>();
-          
+
         }
 
         public async Task<List<Film>> GetAllAsync()
         {
-           return await _filmSet.ToListAsync();
+            return await _filmSet.ToListAsync();
         }
 
-        public async Task<Film> GetBySlugAsync(string slug)
+        public async Task<Film?> GetBySlugAsync(string slug)
         {
             return await _filmSet.SingleOrDefaultAsync(x => x.Slug == slug);
         }
@@ -66,7 +66,7 @@ namespace Movie.API.Infrastructure.Repositories
             var films = await _filmSet
                 .Where(x => !string.IsNullOrEmpty(name) &&
                              (x.Name.ToLower().Contains(name.ToLower()) || x.OriginName.ToLower().Contains(name.ToLower())))
-                
+
                 .ToListAsync();
             var count = films.Count();
             var result = films.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();

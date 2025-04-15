@@ -30,12 +30,12 @@ namespace Movie.API.Controllers
                 CommentId = commentId,
             };
             return await _mediator.Send(query);
-            
+
         }
         [HttpPost("add")]
         public async Task<IActionResult> AddFeedback([FromBody] AddFeedbackRequest model)
         {
-            string userid = HttpContext.User.FindFirstValue("UserId");
+            string userid = HttpContext.User.FindFirstValue("UserId")!;
             var command = new AddFeedbackCommand() { UserId = userid };
             CustomMapper.Mapper.Map<AddFeedbackRequest, AddFeedbackCommand>(model, command);
 

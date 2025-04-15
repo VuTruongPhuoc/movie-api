@@ -6,6 +6,6 @@ namespace Movie.API.Features.Comments
 {
     public class AddCommentCommand : AddCommentRequest, IRequest<AddCommentResponse>
     {
-        public string UserId { get; set; }
+        public string UserId { get; set; } = default!;
     }
 }

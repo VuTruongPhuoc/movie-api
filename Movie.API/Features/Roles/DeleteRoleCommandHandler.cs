@@ -28,10 +28,11 @@ namespace Movie.API.Features.Roles
                     RoleName = request.RoleName
                 });
             }
-            if(await _roleRepository.DeleteRoleAsync(role.Name) == true)
+            if (await _roleRepository.DeleteRoleAsync(role.Name ?? string.Empty) == true)
             {
                 await _roleRepository.SaveAsync();
-            };
+            }
+            ;
             return await Task.FromResult(new DeleteRoleResponse
             {
                 Success = true,

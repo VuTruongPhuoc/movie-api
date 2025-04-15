@@ -6,6 +6,6 @@ namespace Movie.API.Features.Sections
 {
     public class DeleteSectionCommand : DeleteSectionRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

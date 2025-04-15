@@ -6,6 +6,6 @@ namespace Movie.API.Features.Reviews
 {
     public class AddReviewCommand : AddReviewRequest, IRequest<Response>
     {
-        public string UserId { get; set; }
+        public string UserId { get; set; } = default!;
     }
 }

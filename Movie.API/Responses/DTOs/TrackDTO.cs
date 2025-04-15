@@ -2,9 +2,9 @@
 {
     public class TrackDTO
     {
-        public int Id { get; set; }
-        public string UserId { get; set; }
-        public string FilmId { get; set; }
-        public DateTime CreateDate { get; set; }
+        public int Id { get; set; } = default!;
+        public string UserId { get; set; } = default!;
+        public string FilmId { get; set; } = default!;
+        public DateTime CreateDate { get; set; } = default!;
     }
 }

@@ -33,13 +33,13 @@ namespace Movie.API.Features.Films
 
         public async Task<GetFilmBySlugResponse> Handle(GetFilmBySlugQuery request, CancellationToken cancellationToken)
         {
-            if(request.Slug is null)
+            if (request.Slug is null)
             {
                 return new GetFilmBySlugResponse
                 {
                     Success = false,
                     StatusCode = System.Net.HttpStatusCode.NotFound,
-                    Message = null
+                    Message = string.Empty
                 };
             }
             var film = await _dbContext.Films
@@ -50,13 +50,13 @@ namespace Movie.API.Features.Films
                 .Include(f => f.Reviews)
                 .SingleOrDefaultAsync(x => x.Slug == request.Slug, cancellationToken);
 
-            if(film is null)
+            if (film is null)
             {
                 return new GetFilmBySlugResponse
                 {
                     Success = false,
                     StatusCode = System.Net.HttpStatusCode.BadRequest,
-                    Message = null
+                    Message = string.Empty
                 };
             }
 
@@ -66,8 +66,6 @@ namespace Movie.API.Features.Films
                 .ToList();
             filmDto.Schedule = CustomMapper.Mapper.Map<ScheduleDTO>(film.Schedule);
             filmDto.Country = CustomMapper.Mapper.Map<CountryDTO>(film.Country);
-
-
 
             var reviews = film.Reviews;
             filmDto.Review = new ReviewTotal()
@@ -79,14 +77,15 @@ namespace Movie.API.Features.Films
                 .Where(e => e.FilmId == film.Id)
                 .ToListAsync(cancellationToken);
             var episodeDtos = new List<EpisodeDTO>();
+            var sectionDict = _dbContext.Sections.Where(w => episodes.Select(s => s.SectionId).Contains(w.Id)).ToDictionary(k => k.Id, v => v.Name);
             foreach (var episode in episodes)
             {
                 var episodeDto = CustomMapper.Mapper.Map<EpisodeDTO>(episode);
                 episodeDto.FilmName = film.Name;
-                episodeDto.SectionName = (await _sectionRepository.GetByIdAsync(episode.SectionId)).Name;
+                episodeDto.SectionName = sectionDict.TryGetValue(episode.SectionId, out var name) ? name : string.Empty;
                 episodeDtos.Add(episodeDto);
             }
-           
+
             return await Task.FromResult(new GetFilmBySlugResponse()
             {
                 Success = true,

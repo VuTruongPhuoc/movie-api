@@ -6,6 +6,6 @@ namespace Movie.API.Features.Categories
 {
     public class UpdateCategoryCommand : UpdateCategoryRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

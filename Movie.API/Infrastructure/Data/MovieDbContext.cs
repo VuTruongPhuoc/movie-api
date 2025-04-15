@@ -9,23 +9,23 @@ namespace Movie.API.Infrastructure.Data
     {
         public MovieDbContext(DbContextOptions<MovieDbContext> options) : base(options) { }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<Episode> Episodes { get; set; }
-        public DbSet<EpisodeServer> EpisodeServers { get; set; }
-        public DbSet<Film> Films { get; set; }
-        public DbSet<FilmCategory> FilmCategories { get; set; }
-        public DbSet<History> Histories { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<RolePrivileges> RolePrivileges { get; set; }
-        public DbSet<Schedule> Schedules { get; set; }
-        public DbSet<Section> Sections { get; set; }
-        public DbSet<Server> Servers { get; set; }
-        public DbSet<Track> Tracks { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Category> Categories { get; set; } = default!;
+        public DbSet<Comment> Comments { get; set; } = default!;
+        public DbSet<Country> Countries { get; set; } = default!;
+        public DbSet<Episode> Episodes { get; set; } = default!;
+        public DbSet<EpisodeServer> EpisodeServers { get; set; } = default!;
+        public DbSet<Film> Films { get; set; } = default!;
+        public DbSet<FilmCategory> FilmCategories { get; set; } = default!;
+        public DbSet<History> Histories { get; set; } = default!;
+        public DbSet<Review> Reviews { get; set; } = default!;
+        public new DbSet<Role> Roles { get; set; } = default!;
+        public DbSet<RolePrivileges> RolePrivileges { get; set; } = default!;
+        public DbSet<Schedule> Schedules { get; set; } = default!;
+        public DbSet<Section> Sections { get; set; } = default!;
+        public DbSet<Server> Servers { get; set; } = default!;
+        public DbSet<Track> Tracks { get; set; } = default!;
+        public new DbSet<User> Users { get; set; } = default!;
+        public DbSet<Feedback> Feedbacks { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,10 +51,11 @@ namespace Movie.API.Infrastructure.Data
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
                 var tableName = entityType.GetTableName();
-                if (tableName.StartsWith("AspNet"))
-                {
-                    entityType.SetTableName(tableName.Substring(6));
-                }
+                if (tableName is not null)
+                    if (tableName.StartsWith("AspNet"))
+                    {
+                        entityType.SetTableName(tableName.Substring(6));
+                    }
             }
         }
 

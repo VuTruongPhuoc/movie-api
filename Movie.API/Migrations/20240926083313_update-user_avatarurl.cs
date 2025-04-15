@@ -5,7 +5,7 @@
 namespace Movie.API.Migrations
 {
     /// <inheritdoc />
-    public partial class updateuser_avatarurl : Migration
+    public partial class Updateuser_avatarurl : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -2,16 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Movie.API.Infrastructure.Data;
 using Movie.API.Models.Domain.Common;
-using System.Numerics;
 
 namespace Movie.API.Infrastructure.Repositories
 {
     public interface IGenericRepository<T> where T : class
     {
         Task<PaginatedList<T>> GetAllAsync(int pageNumber, int pageSize);
-        Task<T> GetByIdAsync(object id);
+        Task<T?> GetByIdAsync(object id);
         Task<T> AddAsync(T Entity);
-        Task<T> UpdateAsync(T Entity);
+        T UpdateAsync(T Entity);
         Task<bool> DeleteAsync(object id);
         Task SaveAsync();
 
@@ -27,10 +26,10 @@ namespace Movie.API.Infrastructure.Repositories
         }
         public async Task<PaginatedList<T>> GetAllAsync(int pageNumber, int pageSize)
         {
-            var result  = await _dbSet.Skip((pageNumber - 1)* pageSize).Take(pageSize).ToListAsync();
+            var result = await _dbSet.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
             var count = await _dbSet.CountAsync();
             var totalPages = (int)Math.Ceiling(count / (double)pageSize);
-            return new PaginatedList<T>(result, pageNumber, totalPages);    
+            return new PaginatedList<T>(result, pageNumber, totalPages);
         }
 
         public async Task<T?> GetByIdAsync(object id)
@@ -44,16 +43,21 @@ namespace Movie.API.Infrastructure.Repositories
             return entity;
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public T UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
             return entity;
         }
         public async Task<bool> DeleteAsync(object id)
         {
-            var obj = _dbSet.Find(id);
-            _dbSet.Remove(obj);
-            return true;
+            var result = false;
+            var obj = await _dbSet.FindAsync(id);
+            if (obj is not null)
+            {
+                _dbSet.Remove(obj);
+                result = true;
+            }
+            return result;
         }
         public async Task SaveAsync()
         {

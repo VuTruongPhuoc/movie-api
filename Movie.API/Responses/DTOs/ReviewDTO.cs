@@ -2,16 +2,16 @@
 {
     public class ReviewDTO
     {
-        public int Id { get; set; }
-        public string UserId { get; set; }
-        public string FilmId { get; set; }  
-        public int Rate { get; set; }
-        public DateTime CreateDate { get; set; }
+        public int Id { get; set; } = default!;
+        public string UserId { get; set; } = default!;
+        public string FilmId { get; set; } = default!;
+        public int Rate { get; set; } = default!;
+        public DateTime CreateDate { get; set; } = default!;
     }
 
     public class ReviewTotal
     {
-        public int Count { get; set; }
-        public double AvgRate { get; set; }
+        public int Count { get; set; } = default!;
+        public double AvgRate { get; set; } = default!;
     }
 }

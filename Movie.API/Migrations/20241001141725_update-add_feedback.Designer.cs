@@ -13,7 +13,7 @@ namespace Movie.API.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
     [Migration("20241001141725_update-add_feedback")]
-    partial class updateadd_feedback
+    partial class Updateadd_feedback
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

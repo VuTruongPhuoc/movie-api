@@ -51,7 +51,8 @@ namespace Movie.API.Controllers
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
                 return NotFound(response);
-            } else if(response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 return BadRequest(response);
             }
@@ -69,27 +70,27 @@ namespace Movie.API.Controllers
                 }
             };
 
-            var usersResponse = await _mediator.Send(query); 
+            var usersResponse = await _mediator.Send(query);
 
-            foreach (var user in usersResponse.Data.Items) 
+            foreach (var user in usersResponse.Data.Items)
             {
-                user.AvatarUrl = $"{Request.Scheme}://{Request.Host}/Content/Images/{user.Avatar}"; 
+                user.AvatarUrl = $"{Request.Scheme}://{Request.Host}/Content/Images/{user.Avatar}";
             }
 
             return new DataRespone
             {
                 Success = true,
                 StatusCode = System.Net.HttpStatusCode.OK,
-                Data = usersResponse.Data 
+                Data = usersResponse.Data
             };
         }
-        
+
 
         [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] AddUserRequest model)
         {
             var command = new AddUserCommand();
-            CustomMapper.Mapper.Map<AddUserRequest, AddUserCommand>(model,command);
+            CustomMapper.Mapper.Map<AddUserRequest, AddUserCommand>(model, command);
             var response = await _mediator.Send(command);
 
             if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
@@ -99,11 +100,11 @@ namespace Movie.API.Controllers
             return Ok(response);
         }
         [HttpPost("update/{username}")]
-        public async Task<IActionResult> Update(string username,[FromBody] UpdateUserRequest model)
+        public async Task<IActionResult> Update(string username, [FromBody] UpdateUserRequest model)
         {
-            var command = new UpdateUserCommand() { UserName = username};
-            CustomMapper.Mapper.Map<UpdateUserRequest, UpdateUserCommand>(model,command);
-            
+            var command = new UpdateUserCommand() { UserName = username };
+            CustomMapper.Mapper.Map<UpdateUserRequest, UpdateUserCommand>(model, command);
+
             var response = await _mediator.Send(command);
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
@@ -118,12 +119,14 @@ namespace Movie.API.Controllers
         [HttpDelete("delete/{username}")]
         public async Task<IActionResult> Delete(string username)
         {
-            var command = new DeleteUserCommand() { UserName = username};
-            var response =  await _mediator.Send(command);
-            if(response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            var command = new DeleteUserCommand() { UserName = username };
+            var response = await _mediator.Send(command);
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
                 return NotFound(response);
-            }else if(response.StatusCode == System.Net.HttpStatusCode.BadRequest) {
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
                 return BadRequest(response);
             }
             return Ok(response);
@@ -153,18 +156,10 @@ namespace Movie.API.Controllers
                 {
                     Success = false,
                     StatusCode = System.Net.HttpStatusCode.BadRequest,
-                    Message = null
+                    Message = string.Empty
                 });
             }
             var user = await _userManager.FindByNameAsync(username);
-            if (model.AvatarFile != null)
-            {
-                if (!string.IsNullOrEmpty(user.Avatar))
-                {
-                    DeleteImage(user.Avatar);
-                }
-                user.Avatar = await SaveImage(model.AvatarFile);
-            }
             if (user is null)
             {
                 return NotFound(new Response()
@@ -174,10 +169,17 @@ namespace Movie.API.Controllers
                     Message = "Không tìm thấy",
                 });
             }
-
+            if (model.AvatarFile != null)
+            {
+                if (!string.IsNullOrEmpty(user?.Avatar))
+                {
+                    DeleteImage(user.Avatar);
+                }
+                user!.Avatar = await SaveImage(model.AvatarFile);
+            }
             CustomMapper.Mapper.Map<ChangeImageRequest, User>(model, user);
-            user.AvatarUrl = Path.Combine("Content\\Images", user.Avatar);
-            await _userRepository.UpdateAsync(user);
+            user.AvatarUrl = Path.Combine("Content\\Images", user.Avatar ?? string.Empty);
+            _userRepository.UpdateAsync(user);
             await _userRepository.SaveAsync();
 
             var dto = CustomMapper.Mapper.Map<UserAvatar>(user);

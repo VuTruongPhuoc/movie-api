@@ -7,6 +7,6 @@ namespace Movie.API.Features.Feedbacks
 {
     public class DeleteFeedbackCommand : DeleteFeedbackRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

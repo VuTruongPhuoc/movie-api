@@ -6,6 +6,6 @@ namespace Movie.API.Features.Films
 {
     public class DeleteFilmCommand : DeleteFilmRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

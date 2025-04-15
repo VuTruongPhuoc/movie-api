@@ -2,9 +2,9 @@
 {
     public class EpisodeServer
     {
-        public int EpisodeId { get; set; }
-        public int ServerId { get; set; }
-        public Episode? Episode { get; set; }
-        public Server? Server { get; set; }
+        public int EpisodeId { get; set; } = default!;
+        public int ServerId { get; set; } = default!;
+        public virtual Episode Episode { get; set; } = default!;
+        public virtual Server Server { get; set; } = default!;
     }
 }

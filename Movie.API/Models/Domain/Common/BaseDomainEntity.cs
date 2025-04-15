@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Movie.API.Models.Domain.Common
 {
     public class BaseDomainEntity
     {
-        public int Id { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime LastModifiedDate { get; set; }
-        public bool IsActive {  get; set; } 
-        public int Status { get; set; }
+        public int Id { get; set; } = default!;
+        public DateTime CreateDate { get; set; } = default!;
+        public DateTime LastModifiedDate { get; set; } = default!;
+        public bool IsActive { get; set; } = default!;
+        public int Status { get; set; } = default!;
 
 
     }

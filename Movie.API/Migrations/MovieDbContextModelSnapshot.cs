@@ -885,27 +885,25 @@ namespace Movie.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Movie.API.Models.Domain.Entities.Section", "Section")
+                    b.HasOne("Movie.API.Models.Domain.Entities.Section", null)
                         .WithMany("Episodes")
                         .HasForeignKey("SectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Film");
-
-                    b.Navigation("Section");
                 });
 
             modelBuilder.Entity("Movie.API.Models.Domain.Entities.EpisodeServer", b =>
                 {
                     b.HasOne("Movie.API.Models.Domain.Entities.Episode", "Episode")
-                        .WithMany()
+                        .WithMany("EpisodeServers")
                         .HasForeignKey("EpisodeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Movie.API.Models.Domain.Entities.Server", "Server")
-                        .WithMany()
+                        .WithMany("EpisodeServers")
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1055,6 +1053,11 @@ namespace Movie.API.Migrations
                     b.Navigation("Films");
                 });
 
+            modelBuilder.Entity("Movie.API.Models.Domain.Entities.Episode", b =>
+                {
+                    b.Navigation("EpisodeServers");
+                });
+
             modelBuilder.Entity("Movie.API.Models.Domain.Entities.Film", b =>
                 {
                     b.Navigation("Comments");
@@ -1083,6 +1086,11 @@ namespace Movie.API.Migrations
             modelBuilder.Entity("Movie.API.Models.Domain.Entities.Section", b =>
                 {
                     b.Navigation("Episodes");
+                });
+
+            modelBuilder.Entity("Movie.API.Models.Domain.Entities.Server", b =>
+                {
+                    b.Navigation("EpisodeServers");
                 });
 
             modelBuilder.Entity("Movie.API.Models.Domain.Entities.User", b =>

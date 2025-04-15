@@ -6,6 +6,6 @@ namespace Movie.API.Features.Categories
 {
     public class DeleteCategoryCommand : DeleteCategoryRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

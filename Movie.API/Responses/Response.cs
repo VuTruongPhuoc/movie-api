@@ -7,10 +7,10 @@ namespace Movie.API.Responses
     public class Response
     {
         [JsonPropertyOrder(-1)]
-        public bool Success {  get; set; }
+        public bool Success { get; set; }
         [JsonPropertyOrder(-1)]
-        public HttpStatusCode StatusCode { get; set; }
+        public HttpStatusCode StatusCode { get; set; } = default!;
         [JsonPropertyOrder(-1)]
-        public string Message { get; set; }
+        public string Message { get; set; } = default!;
     }
 }

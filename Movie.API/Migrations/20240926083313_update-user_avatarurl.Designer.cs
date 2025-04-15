@@ -13,7 +13,7 @@ namespace Movie.API.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
     [Migration("20240926083313_update-user_avatarurl")]
-    partial class updateuser_avatarurl
+    partial class Updateuser_avatarurl
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -5,6 +5,6 @@ namespace Movie.API.Features.Tracks
 {
     public class DeleteTrackCommand : IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

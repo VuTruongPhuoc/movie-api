@@ -1,15 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.IdentityModel.Tokens;
 using Movie.API.Infrastructure.Repositories;
 using Movie.API.Models.Domain.Entities;
 using Movie.API.Requests;
 using Movie.API.Responses;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace Movie.API.Controllers
 {
@@ -20,7 +15,7 @@ namespace Movie.API.Controllers
         public readonly UserManager<User> _userManager;
         public readonly IConfiguration _configuration;
         private readonly AccountManager _accountManager;
-        public AccountController(UserManager<User> userManager,IConfiguration configuration, AccountManager accountManager)
+        public AccountController(UserManager<User> userManager, IConfiguration configuration, AccountManager accountManager)
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -54,7 +49,7 @@ namespace Movie.API.Controllers
         public async Task<IActionResult> ForgotPassword(string email)
         {
             var response = await _accountManager.ForgotPassword(email);
-            if(response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 return BadRequest(response);
             }
@@ -68,10 +63,10 @@ namespace Movie.API.Controllers
         [HttpDelete("revoketoken")]
         public async Task<Response> Revoke()
         {
-            string username = HttpContext.User.Identity.Name;
+            string username = HttpContext.User.Identity?.Name!;
             return await _accountManager.Revoke(username);
         }
-        
-        
+
+
     }
 }

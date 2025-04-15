@@ -33,7 +33,7 @@ namespace Movie.API.Features.Comments
             }
             CustomMapper.Mapper.Map<UpdateCommentCommand, Comment>(request, comment);
             comment.LastModifiedDate = DateTime.UtcNow;
-            await _CommentRepository.UpdateAsync(comment);
+            _CommentRepository.UpdateAsync(comment);
             await _CommentRepository.SaveAsync();
             return await Task.FromResult(new UpdateCommentResponse()
             {

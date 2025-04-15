@@ -17,7 +17,7 @@ namespace Movie.API.Features.Reviews
         }
         public async Task<Response> Handle(GetReviewQuery request, CancellationToken cancellationToken)
         {
-            if (request.FilmId == null)
+            if (request is null)
             {
                 return await Task.FromResult(new Response()
                 {
@@ -27,7 +27,7 @@ namespace Movie.API.Features.Reviews
 
                 });
             }
-            var review = await _reviewRepository.GetByFilmAsync(request.FilmId, request.UserId);
+            var review = await _reviewRepository.GetByFilmAsync(request.FilmId, request.UserId ?? string.Empty);
             if (review is null)
             {
                 return await Task.FromResult(new Response()

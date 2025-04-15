@@ -6,6 +6,6 @@ namespace Movie.API.Features.Feedbacks
 {
     public class UpdateFeedbackCommand : UpdateCommentRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

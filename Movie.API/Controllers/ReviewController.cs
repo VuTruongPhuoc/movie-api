@@ -8,7 +8,6 @@ using Movie.API.Requests;
 using Movie.API.Responses;
 using Movie.API.Requests.Pagination;
 using System.Security.Claims;
-using Movie.API.Features.Reviews;
 
 namespace Movie.API.Controllers
 {
@@ -46,7 +45,7 @@ namespace Movie.API.Controllers
         [HttpPost("add")]
         public async Task<Response> AddReview([FromBody] AddReviewRequest model)
         {
-            string userid = HttpContext.User.FindFirstValue("UserId");
+            string userid = HttpContext.User.FindFirstValue("UserId")!;
             var command = new AddReviewCommand();
             command.UserId = userid;
             CustomMapper.Mapper.Map<AddReviewRequest, AddReviewCommand>(model, command);

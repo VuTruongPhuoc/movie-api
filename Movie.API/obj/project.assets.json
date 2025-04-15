@@ -5742,19 +5742,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phuoc\\.nuget\\packages\\": {}
+    "C:\\Users\\phuoc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Workplace\\MoviesApp\\Movie-api\\Movie.API\\Movie.API.csproj",
+      "projectUniqueName": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Movie.API.csproj",
       "projectName": "Movie.API",
-      "projectPath": "D:\\Workplace\\MoviesApp\\Movie-api\\Movie.API\\Movie.API.csproj",
+      "projectPath": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Movie.API.csproj",
       "packagesPath": "C:\\Users\\phuoc\\.nuget\\packages\\",
-      "outputPath": "D:\\Workplace\\MoviesApp\\Movie-api\\Movie.API\\obj\\",
+      "outputPath": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\phuoc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5774,7 +5779,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -5870,7 +5881,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

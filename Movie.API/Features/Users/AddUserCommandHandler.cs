@@ -15,7 +15,7 @@ namespace Movie.API.Features.Users
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<Role> _roleManager;
         private readonly IUserRepository _userRepository;
-        public AddUserCommandHandler(MovieDbContext dbContext,UserManager<User> userManager,RoleManager<Role> roleManager, IUserRepository userRepository)
+        public AddUserCommandHandler(MovieDbContext dbContext, UserManager<User> userManager, RoleManager<Role> roleManager, IUserRepository userRepository)
         {
             _dbContext = dbContext;
             _userManager = userManager;
@@ -26,7 +26,7 @@ namespace Movie.API.Features.Users
         {
             try
             {
-                if(await _userManager.FindByNameAsync(request.UserName) != null)
+                if (await _userManager.FindByNameAsync(request.UserName) != null)
                 {
                     return await Task.FromResult(new AddUserResponse()
                     {
@@ -35,7 +35,7 @@ namespace Movie.API.Features.Users
                         Message = "Người dùng đã tồn tại"
                     });
                 }
-                if(await _userManager.FindByEmailAsync(request.Email) != null)
+                if (await _userManager.FindByEmailAsync(request.Email) != null)
                 {
                     return await Task.FromResult(new AddUserResponse()
                     {
@@ -51,7 +51,10 @@ namespace Movie.API.Features.Users
                 await _userRepository.SaveAsync();
                 var dto = CustomMapper.Mapper.Map<UserDTO>(user);
                 var role = _dbContext.UserRoles.FirstOrDefault(r => r.UserId == user.Id);
-                dto.RoleName = (await _roleManager.FindByIdAsync(role.RoleId)).Name;
+                if (role is not null)
+                {
+                    dto.RoleName = (await _roleManager.FindByIdAsync(role.RoleId))?.Name!;
+                }
                 return await Task.FromResult(new AddUserResponse()
                 {
                     Success = true,
@@ -59,11 +62,10 @@ namespace Movie.API.Features.Users
                     Message = "Đăng ký người dùng thành công",
                     User = dto
                 });
-
-
-            }catch (Exception ex)
+            }
+            catch
             {
-                throw ex;
+                throw new Exception();
             }
         }
     }

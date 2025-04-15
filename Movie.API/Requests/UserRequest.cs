@@ -4,27 +4,27 @@ namespace Movie.API.Requests
 {
     public class ChangeRoleRequest
     {
-        public string UserName { get; set; }
-        public string RoleName { get; set; }  
+        public string UserName { get; set; } = default!;
+        public string RoleName { get; set; } = default!;
     }
     public class AddUserRequest
     {
-        public string UserName { get; set; }
-        public string DisplayName { get; set; }
-        public string Email { get; set; }
-        public string? PhoneNumber { get; set; }
+        public string UserName { get; set; } = default!;
+        public string DisplayName { get; set; } = default!;
+        public string Email { get; set; } = default!;
+        public string? PhoneNumber { get; set; } = default!;
     }
     public class UpdateUserRequest
     {
-        public string DisplayName { get; set;}
-        public string Email { get; set;}
-        public string? PhoneNumber { get; set;}  
+        public string DisplayName { get; set; } = default!;
+        public string Email { get; set; } = default!;
+        public string? PhoneNumber { get; set; }
     }
     public class ChangeImageRequest
     {
-        public string UserName { get; set; }
+        public string UserName { get; set; } = default!;
         [NotMapped]
-        public IFormFile AvatarFile { get; set;}
+        public IFormFile AvatarFile { get; set; } = default!;
     }
     public class DeleteUserRequest
     {

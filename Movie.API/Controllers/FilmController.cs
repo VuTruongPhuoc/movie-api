@@ -25,6 +25,7 @@ namespace Movie.API.Controllers
     [ApiController]
     public class FilmController : BaseController
     {
+        private CancellationToken cancellationToken => HttpContext.RequestAborted;
         private readonly IFilmRepository _filmRepository;
         private readonly MovieDbContext _dbContext;
         private readonly IMediator _mediator;
@@ -62,7 +63,8 @@ namespace Movie.API.Controllers
             if (filmResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
                 return NotFound(filmResponse);
-            } else if (filmResponse.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            }
+            else if (filmResponse.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 return BadRequest(filmResponse);
             }
@@ -135,18 +137,10 @@ namespace Movie.API.Controllers
                 {
                     Success = false,
                     StatusCode = System.Net.HttpStatusCode.BadRequest,
-                    Message = null
+                    Message = string.Empty
                 });
             }
             var film = await _filmRepository.GetByIdAsync(id);
-            if (model.ImageFile != null)
-            {
-                if (!string.IsNullOrEmpty(film.Image))
-                {
-                    DeleteImage(film.Image);
-                }
-                film.Image = await SaveImage(model.ImageFile);
-            }
             if (film is null)
             {
                 return NotFound(new Response()
@@ -157,9 +151,18 @@ namespace Movie.API.Controllers
                 });
             }
 
+            if (model.ImageFile != null)
+            {
+                if (!string.IsNullOrEmpty(film.Image))
+                {
+                    DeleteImage(film.Image);
+                }
+                film.Image = await SaveImage(model.ImageFile);
+            }
+
             CustomMapper.Mapper.Map<ChangeFilmImageRequest, Film>(model, film);
-            film.Image = Path.Combine(film.Image);
-            await _filmRepository.UpdateAsync(film);
+            film.Image = Path.Combine(film.Image ?? string.Empty);
+            _filmRepository.UpdateAsync(film);
             await _filmRepository.SaveAsync();
 
             var dto = CustomMapper.Mapper.Map<FilmImage>(film);
@@ -183,18 +186,10 @@ namespace Movie.API.Controllers
                 {
                     Success = false,
                     StatusCode = System.Net.HttpStatusCode.BadRequest,
-                    Message = null
+                    Message = string.Empty
                 });
             }
             var film = await _filmRepository.GetByIdAsync(id);
-            if (model.PosterFile != null)
-            {
-                if (!string.IsNullOrEmpty(film.Poster))
-                {
-                    DeleteImage(film.Poster);
-                }
-                film.Poster = await SaveImage(model.PosterFile);
-            }
             if (film is null)
             {
                 return NotFound(new Response()
@@ -204,10 +199,19 @@ namespace Movie.API.Controllers
                     Message = "Không tìm thấy",
                 });
             }
+            if (model.PosterFile != null)
+            {
+                if (!string.IsNullOrEmpty(film.Poster))
+                {
+                    DeleteImage(film.Poster);
+                }
+                film.Poster = await SaveImage(model.PosterFile);
+            }
+
 
             CustomMapper.Mapper.Map<ChangeFilmPosterRequest, Film>(model, film);
-            film.Poster = Path.Combine(film.Poster);
-            await _filmRepository.UpdateAsync(film);
+            film.Poster = Path.Combine(film.Poster ?? string.Empty);
+            _filmRepository.UpdateAsync(film);
             await _filmRepository.SaveAsync();
 
             var dto = CustomMapper.Mapper.Map<FilmPoster>(film);
@@ -224,20 +228,12 @@ namespace Movie.API.Controllers
         [HttpGet("getbytype/{type}")]
         public async Task<IActionResult> GetByType(int pagenumber, int pagesize, int type)
         {
-            if (type == null)
-            {
-                return NotFound(new FilterFilmResponse()
-                {
-                    Success = false,
-                    StatusCode = System.Net.HttpStatusCode.NotFound,
-                    Message = null,
-                });
-            }
             var typeName = "";
-            if(type == 0)
+            if (type == 0)
             {
                 typeName = "Phim bộ";
-            }else if(type == 1)
+            }
+            else if (type == 1)
             {
                 typeName = "Phim lẻ";
             }
@@ -261,17 +257,12 @@ namespace Movie.API.Controllers
         [HttpGet("getbycategory/{category}")]
         public async Task<IActionResult> GetByCategory(int pagenumber, int pagesize, int category)
         {
-            if(category == null)
+            var cate = await _dbContext.Categories.FindAsync(category, cancellationToken);
+            if (cate is null)
             {
-                return NotFound(new FilterFilmResponse()
-                {
-                    Success = false,
-                    StatusCode = System.Net.HttpStatusCode.NotFound,
-                    Message = null,
-                });
+                return BadRequest();
             }
-            var cate = await _dbContext.Categories.FindAsync(category);
-            var films = await _filmRepository.GetByCategoryAsync(pagenumber,pagesize,category);
+            var films = await _filmRepository.GetByCategoryAsync(pagenumber, pagesize, category);
             var filter = CustomMapper.Mapper.Map<PaginatedList<FilmFilter>>(films);
             foreach (var filmFilter in filter.Items)
             {
@@ -297,7 +288,7 @@ namespace Movie.API.Controllers
                 {
                     Success = false,
                     StatusCode = System.Net.HttpStatusCode.NotFound,
-                    Message = null,
+                    Message = string.Empty,
                 });
             }
             var films = await _filmRepository.GetByNameAsync(pagenumber, pagesize, name);
@@ -317,7 +308,7 @@ namespace Movie.API.Controllers
             });
         }
         [HttpGet("filter")]
-        public async Task<IActionResult> Filter(int pagenumber, int pagesize,int? year, int? category,int? country )
+        public async Task<IActionResult> Filter(int pagenumber, int pagesize, int? year, int? category, int? country)
         {
 
             var films = await _filmRepository.Filter(pagenumber, pagesize, year, country, category);
@@ -333,13 +324,13 @@ namespace Movie.API.Controllers
                 Success = true,
                 StatusCode = System.Net.HttpStatusCode.OK,
                 Message = "Thành công",
-               
+
                 Data = filter,
             });
         }
 
         [NonAction]
-        public string Url()
+        public new string Url()
         {
             return $"{Request.Scheme}://{Request.Host}/Content/Images";
         }

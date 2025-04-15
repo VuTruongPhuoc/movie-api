@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Movie.API",
+    "\\Movie.API\\Features",
+    "\\Movie.API\\Features\\Categories",
     "\\Movie.API\\Models",
     "\\Movie.API\\Models\\Domain",
     "\\Movie.API\\Models\\Domain\\Entities"
   ],
-  "SelectedNode": "\\Movie.API\\Models\\Domain\\Entities\\User.cs",
+  "SelectedNode": "\\movie-api.sln",
   "PreviewInSolutionExplorer": false
 }

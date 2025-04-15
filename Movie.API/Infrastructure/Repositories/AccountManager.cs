@@ -23,7 +23,7 @@ namespace Movie.API.Infrastructure.Repositories
     {
         private readonly MovieDbContext _dbContext;
         private readonly UserManager<User> _userManager;
-        private readonly RoleManager<Role> _roleManager;    
+        private readonly RoleManager<Role> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly ILogger<AccountManager> _logger;
         private readonly ISendEmail _sendEmail;
@@ -31,7 +31,7 @@ namespace Movie.API.Infrastructure.Repositories
             MovieDbContext dbContext,
             UserManager<User> userManager,
             RoleManager<Role> roleManager,
-            IConfiguration configuration, 
+            IConfiguration configuration,
             ILogger<AccountManager> logger,
             ISendEmail sendEmail)
         {
@@ -42,20 +42,21 @@ namespace Movie.API.Infrastructure.Repositories
             _logger = logger;
             _sendEmail = sendEmail;
         }
-        public async Task<Response> LoginAsync(LoginRequest model,string scheme, HostString host)
+        public async Task<Response> LoginAsync(LoginRequest model, string scheme, HostString host)
         {
             var user = await _userManager.FindByNameAsync(model.Username);
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            if (user is not null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                var roleId = (await _dbContext.UserRoles.SingleOrDefaultAsync(x => x.UserId == user.Id)).RoleId;
-                var role = await _roleManager.FindByIdAsync(roleId);
+                var userRole = await _dbContext.UserRoles.SingleOrDefaultAsync(x => x.UserId == user.Id);
+                var role = userRole?.RoleId is not null ? await _roleManager.FindByIdAsync(userRole.RoleId) : null;
+
                 var claims = new Claim[]
                 {
                     new Claim("UserName", model.Username),
                     new Claim("UserId", user.Id),
-                    new Claim(ClaimTypes.Role, role.Name ?? string.Empty),
-                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Role, role?.Name ?? string.Empty),
+                    new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
                     new Claim("Avatar", user.Avatar ?? string.Empty),
                     new Claim(ClaimTypes.MobilePhone, user.PhoneNumber ?? string.Empty),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
@@ -64,7 +65,7 @@ namespace Movie.API.Infrastructure.Repositories
                 var jwttoken = new JwtSecurityTokenHandler().WriteToken(token);
 
                 var userdto = CustomMapper.Mapper.Map<UserDTO>(user);
-                userdto.RoleName = role.Name;
+                userdto.RoleName = role?.Name ?? string.Empty;
                 userdto.AvatarUrl = $"{scheme}://{host}/{user.AvatarUrl}";
                 return new LoginRespone()
                 {
@@ -88,7 +89,7 @@ namespace Movie.API.Infrastructure.Repositories
             }
         }
         public async Task<Response> RegisterAsync(RegisterRequest model)
-        {   
+        {
             if (await _userManager.FindByNameAsync(model.UserName) != null)
             {
                 return await Task.FromResult(new RegisterResponse()
@@ -112,7 +113,7 @@ namespace Movie.API.Infrastructure.Repositories
             await _userManager.AddPasswordAsync(user, model.Password);
             await _userManager.AddToRoleAsync(user, "Customer");
             await _dbContext.SaveChangesAsync();
-                
+
             return await Task.FromResult(new RegisterResponse()
             {
                 Success = true,
@@ -135,13 +136,13 @@ namespace Movie.API.Infrastructure.Repositories
             }
             var newPassword = Cryptography.GetRandomString();
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            _userManager.ResetPasswordAsync(user, token, newPassword);
-            _dbContext.SaveChangesAsync();
+            await _userManager.ResetPasswordAsync(user, token, newPassword);
+            await _dbContext.SaveChangesAsync();
             string subject = "Yêu cầu đặt lại mật khẩu.";
             string body = $"Xin chào {user.DisplayName}, yêu cầu đặt lại mật khẩu của bạn đã được thực hiện. " +
                 $"Chúng tôi cung cấp cho bạn mật khẩu mới là {newPassword}, bạn có thể đổi mật khẩu tại trang cá nhân. " +
-                $"Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi" ;
-            _sendEmail.SendEmailAsync(email,subject,body);
+                $"Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi";
+            await _sendEmail.SendEmailAsync(email, subject, body);
             return new Response()
             {
                 Success = true,
@@ -153,9 +154,9 @@ namespace Movie.API.Infrastructure.Repositories
         {
             _logger.LogInformation("Refresh Token called");
             var principal = GetPrincipalFromExpriedToken(model.AccessToken);
-            if (principal?.Identity.Name is null)
+            if (principal?.Identity?.Name is null)
             {
-                return  new RefreshTokenRespone()
+                return new RefreshTokenRespone()
                 {
                     Success = false,
                     StatusCode = HttpStatusCode.Unauthorized,
@@ -195,7 +196,7 @@ namespace Movie.API.Infrastructure.Repositories
         }
         public async Task<Response> Revoke(string username)
         {
-            if(username is null)
+            if (username is null)
             {
                 return new Response()
                 {
@@ -205,7 +206,7 @@ namespace Movie.API.Infrastructure.Repositories
                 };
             }
             var user = await _userManager.FindByNameAsync(username);
-            if(user is null)
+            if (user is null)
                 return new Response()
                 {
                     Success = false,
@@ -225,7 +226,7 @@ namespace Movie.API.Infrastructure.Repositories
         }
         public JwtSecurityToken GenerateToken(IEnumerable<Claim> claims)
         {
-            var authSigninKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration.GetValue<string>("JWT:Secret")));
+            var authSigninKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration.GetValue<string>("JWT:Secret")!));
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
@@ -240,7 +241,7 @@ namespace Movie.API.Infrastructure.Repositories
         }
         private ClaimsPrincipal? GetPrincipalFromExpriedToken(string? token)
         {
-            var key = _configuration["JWT:Secret"];
+            var key = _configuration["JWT:Secret"]!;
             var validation = new TokenValidationParameters
             {
                 ValidIssuer = _configuration["JWT:ValidIssuer"],

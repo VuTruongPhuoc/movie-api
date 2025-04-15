@@ -33,7 +33,7 @@ namespace Movie.API.Features.Reviews
             }
             CustomMapper.Mapper.Map<UpdateReviewCommand, Review>(request, review);
             review.LastModifiedDate = DateTime.UtcNow;
-            await _reviewRepository.UpdateAsync(review);
+            _reviewRepository.UpdateAsync(review);
             await _reviewRepository.SaveAsync();
 
             return await Task.FromResult(new UpdateReviewResponse()

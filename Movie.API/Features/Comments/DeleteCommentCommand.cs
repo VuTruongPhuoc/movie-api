@@ -7,6 +7,6 @@ namespace Movie.API.Features.Comments
 {
     public class DeleteCommentCommand : DeleteCommentRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

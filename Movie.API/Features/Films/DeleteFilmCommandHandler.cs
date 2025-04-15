@@ -29,13 +29,18 @@ namespace Movie.API.Features.Films
                     Message = "Không tìm thấy phim cần xóa"
                 });
             }
-            var film = await _dbContext.Films.AsNoTracking().SingleOrDefaultAsync(x => x.Id == request.Id);
+            var film = await _dbContext.Films.AsNoTracking().SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+            if (film is null) return new DeleteFilmResponse()
+            {
+                Success = false,
+                StatusCode = System.Net.HttpStatusCode.BadRequest,
+                Message = "Xóa phim không thành công",
+                Film = new FilmDTO()
+            };
             await _filmRepository.DeleteAsync(request.Id);
             await _filmRepository.SaveAsync();
 
-            var filmCategories = _dbContext.FilmCategories
-                                .Where(fc => fc.FilmId == film.Id)
-                                .ToList();
+            var filmCategories = _dbContext.FilmCategories.Where(fc => fc.FilmId == film.Id).ToList();
             _dbContext.FilmCategories.RemoveRange(filmCategories);
             _dbContext.SaveChanges();
             return await Task.FromResult(new DeleteFilmResponse()

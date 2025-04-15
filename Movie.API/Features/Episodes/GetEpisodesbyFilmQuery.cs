@@ -5,6 +5,6 @@ namespace Movie.API.Features.Episodes
 {
     public class GetEpisodesbyFilmQuery : IRequest<Response>
     {
-        public int FilmId { get; set; }
+        public int FilmId { get; set; } = default!;
     }
 }

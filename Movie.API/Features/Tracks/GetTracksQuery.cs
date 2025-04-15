@@ -6,7 +6,7 @@ namespace Movie.API.Features.Tracks
 {
     public class GetTracksQuery : IRequest<Response>
     {
-        public Pagination Pagination { get; set; }
-        public string UserId { get; set; }
+        public Pagination Pagination { get; set; } = default!;
+        public string UserId { get; set; } = default!;
     }
 }

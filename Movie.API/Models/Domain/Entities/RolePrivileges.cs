@@ -2,13 +2,13 @@
 
 namespace Movie.API.Models.Domain.Entities
 {
-    public class RolePrivileges: BaseDomainEntity
+    public class RolePrivileges : BaseDomainEntity
     {
-        public string RoleId { get; set; }
+        public string RoleId { get; set; } = default!;
 
         public string Name { get; set; } = default!;
 
-        public Role? Role { get; set; }
+        public Role? Role { get; set; } = default!;
 
     }
 }

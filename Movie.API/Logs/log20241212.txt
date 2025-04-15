@@ -1,0 +1,91 @@
+2024-12-12 21:34:38.755 +07:00 [INF] User profile is available. Using 'C:\Users\phuoc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-12 21:34:39.143 +07:00 [INF] Now listening on: https://localhost:7039
+2024-12-12 21:34:39.144 +07:00 [INF] Now listening on: http://localhost:5203
+2024-12-12 21:34:39.151 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-12 21:34:39.151 +07:00 [INF] Hosting environment: Development
+2024-12-12 21:34:39.151 +07:00 [INF] Content root path: D:\Workplace\MoviesApp\movie-api\Movie.API
+2024-12-12 21:34:42.836 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/index.html - null null
+2024-12-12 21:34:43.142 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/index.html - 200 null text/html;charset=utf-8 313.6195ms
+2024-12-12 21:34:43.182 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 21:34:43.184 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_vs/browserLink - null null
+2024-12-12 21:34:43.199 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 13.9204ms
+2024-12-12 21:34:43.294 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_vs/browserLink - 200 null text/javascript; charset=UTF-8 110.0425ms
+2024-12-12 21:34:43.410 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - null null
+2024-12-12 21:34:43.430 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/favicon-32x32.png - null null
+2024-12-12 21:34:43.445 +07:00 [INF] The file /favicon-32x32.png was not modified
+2024-12-12 21:34:43.457 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/favicon-32x32.png - 304 null image/png 24.5186ms
+2024-12-12 21:34:43.622 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 210.4245ms
+2024-12-12 21:35:49.132 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/category/all - null null
+2024-12-12 21:35:49.195 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-12 21:35:49.221 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.Response] GetCategories() on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-12-12 21:35:49.254 +07:00 [INF] Executing action method Movie.API.Controllers.CategoryController.GetCategories (Movie.API) - Validation state: "Valid"
+2024-12-12 21:35:52.121 +07:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+2024-12-12 21:35:52.602 +07:00 [INF] Executed action method Movie.API.Controllers.CategoryController.GetCategories (Movie.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3337.0142ms.
+2024-12-12 21:35:52.660 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-12 21:35:52.722 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.GetCategories (Movie.API) in 3482.1699ms
+2024-12-12 21:35:52.725 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-12 21:35:52.740 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/category/all - 200 null application/json; charset=utf-8 3610.2109ms
+2024-12-12 21:36:10.711 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/comment/all?filmid=1 - null null
+2024-12-12 21:36:10.730 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CommentController.GetComments (Movie.API)'
+2024-12-12 21:36:10.743 +07:00 [INF] Route matched with {action = "GetComments", controller = "Comment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.DataRespone] GetComments(Int32) on controller Movie.API.Controllers.CommentController (Movie.API).
+2024-12-12 21:36:10.793 +07:00 [INF] Executing action method Movie.API.Controllers.CommentController.GetComments (Movie.API) - Validation state: "Valid"
+2024-12-12 21:36:19.169 +07:00 [INF] Executed DbCommand (146ms) [Parameters=[@__request_FilmId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[FilmId], [c].[IsActive], [c].[IsLocked], [c].[LastModifiedDate], [c].[Status], [c].[UserId], [c].[content], [u].[Id], [t].[Id], [t].[CommentId], [t].[Content], [t].[CreateDate], [t].[IsActive], [t].[IsLocked], [t].[LastModifiedDate], [t].[Status], [t].[UserId], [t].[Id0], [t].[AccessFailedCount], [t].[Avatar], [t].[AvatarUrl], [t].[ConcurrencyStamp], [t].[DisplayName], [t].[Email], [t].[EmailConfirmed], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[RefreshToken], [t].[RefreshTokenExpiry], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [u].[AccessFailedCount], [u].[Avatar], [u].[AvatarUrl], [u].[ConcurrencyStamp], [u].[DisplayName], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Comments] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+LEFT JOIN (
+    SELECT [f].[Id], [f].[CommentId], [f].[Content], [f].[CreateDate], [f].[IsActive], [f].[IsLocked], [f].[LastModifiedDate], [f].[Status], [f].[UserId], [u0].[Id] AS [Id0], [u0].[AccessFailedCount], [u0].[Avatar], [u0].[AvatarUrl], [u0].[ConcurrencyStamp], [u0].[DisplayName], [u0].[Email], [u0].[EmailConfirmed], [u0].[LockoutEnabled], [u0].[LockoutEnd], [u0].[NormalizedEmail], [u0].[NormalizedUserName], [u0].[PasswordHash], [u0].[PhoneNumber], [u0].[PhoneNumberConfirmed], [u0].[RefreshToken], [u0].[RefreshTokenExpiry], [u0].[SecurityStamp], [u0].[TwoFactorEnabled], [u0].[UserName]
+    FROM [Feedbacks] AS [f]
+    INNER JOIN [Users] AS [u0] ON [f].[UserId] = [u0].[Id]
+) AS [t] ON [c].[Id] = [t].[CommentId]
+WHERE [c].[FilmId] = @__request_FilmId_0
+ORDER BY [c].[CreateDate] DESC, [c].[Id], [u].[Id], [t].[Id]
+2024-12-12 21:36:19.221 +07:00 [INF] Executed action method Movie.API.Controllers.CommentController.GetComments (Movie.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 8423.8508ms.
+2024-12-12 21:36:19.244 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-12 21:36:19.256 +07:00 [INF] Executed action Movie.API.Controllers.CommentController.GetComments (Movie.API) in 8501.746ms
+2024-12-12 21:36:19.258 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CommentController.GetComments (Movie.API)'
+2024-12-12 21:36:19.268 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/comment/all?filmid=1 - 200 null application/json; charset=utf-8 8561.0238ms
+2024-12-12 21:36:34.518 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/film/all - null null
+2024-12-12 21:36:34.551 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.FilmController.GetFilms (Movie.API)'
+2024-12-12 21:36:34.556 +07:00 [INF] Route matched with {action = "GetFilms", controller = "Film"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.DataRespone] GetFilms() on controller Movie.API.Controllers.FilmController (Movie.API).
+2024-12-12 21:36:34.593 +07:00 [INF] Executing action method Movie.API.Controllers.FilmController.GetFilms (Movie.API) - Validation state: "Valid"
+2024-12-12 21:36:34.647 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-12-12 21:36:34.693 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[CountryId], [f].[CreateDate], [f].[Description], [f].[Image], [f].[IsActive], [f].[LastModifiedDate], [f].[Name], [f].[number_of_episodes], [f].[OriginName], [f].[Poster], [f].[ScheduleId], [f].[Slug], [f].[Status], [f].[Time], [f].[Trailer], [f].[Type], [f].[Year], [s].[Id], [c].[Id], [t].[FilmId], [t].[CategoryId], [t].[Id], [t].[CreateDate], [t].[Description], [t].[IsActive], [t].[LastModifiedDate], [t].[Name], [t].[Slug], [t].[Status], [s].[CreateDate], [s].[Description], [s].[IsActive], [s].[LastModifiedDate], [s].[Name], [s].[Status], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Status], [r].[Id], [r].[CreateDate], [r].[FilmId], [r].[IsActive], [r].[LastModifiedDate], [r].[Rate], [r].[Status], [r].[UserId]
+FROM [Films] AS [f]
+INNER JOIN [Schedule] AS [s] ON [f].[ScheduleId] = [s].[Id]
+INNER JOIN [Countries] AS [c] ON [f].[CountryId] = [c].[Id]
+LEFT JOIN (
+    SELECT [f0].[FilmId], [f0].[CategoryId], [c0].[Id], [c0].[CreateDate], [c0].[Description], [c0].[IsActive], [c0].[LastModifiedDate], [c0].[Name], [c0].[Slug], [c0].[Status]
+    FROM [FilmCategories] AS [f0]
+    INNER JOIN [Categories] AS [c0] ON [f0].[CategoryId] = [c0].[Id]
+) AS [t] ON [f].[Id] = [t].[FilmId]
+LEFT JOIN [Reviews] AS [r] ON [f].[Id] = [r].[FilmId]
+ORDER BY [f].[Id], [s].[Id], [c].[Id], [t].[FilmId], [t].[CategoryId], [t].[Id]
+2024-12-12 21:36:34.958 +07:00 [INF] Executed action method Movie.API.Controllers.FilmController.GetFilms (Movie.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 363.1271ms.
+2024-12-12 21:36:34.982 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-12 21:36:35.019 +07:00 [INF] Executed action Movie.API.Controllers.FilmController.GetFilms (Movie.API) in 451.6834ms
+2024-12-12 21:36:35.020 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.FilmController.GetFilms (Movie.API)'
+2024-12-12 21:36:35.030 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/film/all - 200 null application/json; charset=utf-8 512.8939ms
+2024-12-12 21:37:03.347 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/comment/all?filmid=11 - null null
+2024-12-12 21:37:03.365 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CommentController.GetComments (Movie.API)'
+2024-12-12 21:37:03.367 +07:00 [INF] Route matched with {action = "GetComments", controller = "Comment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.DataRespone] GetComments(Int32) on controller Movie.API.Controllers.CommentController (Movie.API).
+2024-12-12 21:37:03.399 +07:00 [INF] Executing action method Movie.API.Controllers.CommentController.GetComments (Movie.API) - Validation state: "Valid"
+2024-12-12 21:37:03.430 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__request_FilmId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[FilmId], [c].[IsActive], [c].[IsLocked], [c].[LastModifiedDate], [c].[Status], [c].[UserId], [c].[content], [u].[Id], [t].[Id], [t].[CommentId], [t].[Content], [t].[CreateDate], [t].[IsActive], [t].[IsLocked], [t].[LastModifiedDate], [t].[Status], [t].[UserId], [t].[Id0], [t].[AccessFailedCount], [t].[Avatar], [t].[AvatarUrl], [t].[ConcurrencyStamp], [t].[DisplayName], [t].[Email], [t].[EmailConfirmed], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[RefreshToken], [t].[RefreshTokenExpiry], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [u].[AccessFailedCount], [u].[Avatar], [u].[AvatarUrl], [u].[ConcurrencyStamp], [u].[DisplayName], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[RefreshToken], [u].[RefreshTokenExpiry], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Comments] AS [c]
+INNER JOIN [Users] AS [u] ON [c].[UserId] = [u].[Id]
+LEFT JOIN (
+    SELECT [f].[Id], [f].[CommentId], [f].[Content], [f].[CreateDate], [f].[IsActive], [f].[IsLocked], [f].[LastModifiedDate], [f].[Status], [f].[UserId], [u0].[Id] AS [Id0], [u0].[AccessFailedCount], [u0].[Avatar], [u0].[AvatarUrl], [u0].[ConcurrencyStamp], [u0].[DisplayName], [u0].[Email], [u0].[EmailConfirmed], [u0].[LockoutEnabled], [u0].[LockoutEnd], [u0].[NormalizedEmail], [u0].[NormalizedUserName], [u0].[PasswordHash], [u0].[PhoneNumber], [u0].[PhoneNumberConfirmed], [u0].[RefreshToken], [u0].[RefreshTokenExpiry], [u0].[SecurityStamp], [u0].[TwoFactorEnabled], [u0].[UserName]
+    FROM [Feedbacks] AS [f]
+    INNER JOIN [Users] AS [u0] ON [f].[UserId] = [u0].[Id]
+) AS [t] ON [c].[Id] = [t].[CommentId]
+WHERE [c].[FilmId] = @__request_FilmId_0
+ORDER BY [c].[CreateDate] DESC, [c].[Id], [u].[Id], [t].[Id]
+2024-12-12 21:37:03.549 +07:00 [INF] Executed action method Movie.API.Controllers.CommentController.GetComments (Movie.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 146.2242ms.
+2024-12-12 21:37:03.573 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-12 21:37:03.586 +07:00 [INF] Executed action Movie.API.Controllers.CommentController.GetComments (Movie.API) in 208.1918ms
+2024-12-12 21:37:03.589 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CommentController.GetComments (Movie.API)'
+2024-12-12 21:37:03.597 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/comment/all?filmid=11 - 200 null application/json; charset=utf-8 251.6566ms

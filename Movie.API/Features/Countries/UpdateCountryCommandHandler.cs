@@ -19,9 +19,10 @@ namespace Movie.API.Features.Countries
             _dbContext = dbContext;
         }
         public async Task<Response> Handle(UpdateCountryCommand request, CancellationToken cancellationToken)
-        {   
+        {
             var country = await _dbContext.Countries.FindAsync(request.Id);
-            if (country is null ) {
+            if (country is null)
+            {
                 return await Task.FromResult(new UpdateCountryResponse()
                 {
                     Success = false,
@@ -39,9 +40,8 @@ namespace Movie.API.Features.Countries
                     Message = "Quốc gia đã tồn tại",
                 });
             }
-            CustomMapper.Mapper.Map<UpdateCountryCommand,Country>(request, country);
-            country.LastModifiedDate = DateTime.UtcNow;
-            await _countryRepository.UpdateAsync(country);
+            CustomMapper.Mapper.Map<UpdateCountryCommand, Country>(request, country!);
+            country!.LastModifiedDate = DateTime.UtcNow;
             await _countryRepository.SaveAsync();
             return await Task.FromResult(new UpdateCountryResponse()
             {

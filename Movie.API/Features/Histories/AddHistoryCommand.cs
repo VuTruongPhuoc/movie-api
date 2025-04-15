@@ -6,6 +6,6 @@ namespace Movie.API.Features.Histories
 {
     public class AddHistoryCommand : AddHistoryRequest, IRequest<Response>
     {
-        public string UserId { get; set; }
+        public string UserId { get; set; } = default!;
     }
 }

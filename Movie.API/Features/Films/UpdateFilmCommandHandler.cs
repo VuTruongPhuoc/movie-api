@@ -42,9 +42,9 @@ namespace Movie.API.Features.Films
                     Message = "Phim đã tồn tại",
                 });
             }
-            CustomMapper.Mapper.Map<UpdateFilmCommand, Film>(request, film);
-            film.LastModifiedDate = DateTime.UtcNow;
-            await _filmRepository.UpdateAsync(film);
+            CustomMapper.Mapper.Map<UpdateFilmCommand, Film>(request, film!);
+            film!.LastModifiedDate = DateTime.UtcNow;
+            _filmRepository.UpdateAsync(film);
             await _filmRepository.SaveAsync();
 
             var filmCategories = _dbContext.FilmCategories

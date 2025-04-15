@@ -1,0 +1,130 @@
+2024-12-16 23:51:13.345 +07:00 [INF] User profile is available. Using 'C:\Users\phuoc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-16 23:51:13.592 +07:00 [INF] Now listening on: https://localhost:7039
+2024-12-16 23:51:13.593 +07:00 [INF] Now listening on: http://localhost:5203
+2024-12-16 23:51:13.595 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-16 23:51:13.596 +07:00 [INF] Hosting environment: Development
+2024-12-16 23:51:13.596 +07:00 [INF] Content root path: D:\Workplace\MoviesApp\movie-api\Movie.API
+2024-12-16 23:51:14.399 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger - null null
+2024-12-16 23:51:14.507 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger - 301 0 null 109.764ms
+2024-12-16 23:51:14.510 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/index.html - null null
+2024-12-16 23:51:14.646 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/index.html - 200 null text/html;charset=utf-8 135.7247ms
+2024-12-16 23:51:14.678 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/swagger-ui.css - null null
+2024-12-16 23:51:14.679 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/swagger-ui-bundle.js - null null
+2024-12-16 23:51:14.679 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/swagger-ui-standalone-preset.js - null null
+2024-12-16 23:51:14.714 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_vs/browserLink - null null
+2024-12-16 23:51:14.715 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-16 23:51:14.720 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 5.1242ms
+2024-12-16 23:51:14.728 +07:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-12-16 23:51:14.728 +07:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-12-16 23:51:14.728 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/swagger-ui.css - 200 143943 text/css 49.6772ms
+2024-12-16 23:51:14.728 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 49.0356ms
+2024-12-16 23:51:14.780 +07:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-12-16 23:51:14.780 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 101.5185ms
+2024-12-16 23:51:14.864 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_vs/browserLink - 200 null text/javascript; charset=UTF-8 150.0827ms
+2024-12-16 23:51:17.529 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - null null
+2024-12-16 23:51:17.561 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/favicon-32x32.png - null null
+2024-12-16 23:51:17.568 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-12-16 23:51:17.569 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/favicon-32x32.png - 200 628 image/png 7.8813ms
+2024-12-16 23:51:17.756 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 226.8233ms
+2024-12-16 23:51:25.054 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/category/all - null null
+2024-12-16 23:51:25.084 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:51:25.101 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.Response] GetCategories() on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-12-16 23:51:27.230 +07:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+2024-12-16 23:51:27.476 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-16 23:51:27.505 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.GetCategories (Movie.API) in 2399.9981ms
+2024-12-16 23:51:27.505 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:51:27.512 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/category/all - 200 null application/json; charset=utf-8 2458.0808ms
+2024-12-16 23:51:38.331 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7039/api/category/delete/15 - null null
+2024-12-16 23:51:38.335 +07:00 [INF] CORS policy execution successful.
+2024-12-16 23:51:38.342 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.DeleteCategory (Movie.API)'
+2024-12-16 23:51:38.355 +07:00 [INF] Route matched with {action = "DeleteCategory", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCategory(Int32) on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-12-16 23:51:38.551 +07:00 [INF] Executed DbCommand (68ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__request_Id_0
+2024-12-16 23:51:38.651 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Categories]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-12-16 23:51:38.664 +07:00 [INF] Executing OkObjectResult, writing value of type 'Movie.API.Responses.DeleteCategoryResponse'.
+2024-12-16 23:51:38.666 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.DeleteCategory (Movie.API) in 310.6151ms
+2024-12-16 23:51:38.666 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.DeleteCategory (Movie.API)'
+2024-12-16 23:51:38.666 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7039/api/category/delete/15 - 200 null application/json; charset=utf-8 335.3293ms
+2024-12-16 23:51:43.379 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/index.html - null null
+2024-12-16 23:51:43.384 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/index.html - 200 null text/html;charset=utf-8 4.2399ms
+2024-12-16 23:51:43.412 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-16 23:51:43.412 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 0.5244ms
+2024-12-16 23:51:43.430 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_vs/browserLink - null null
+2024-12-16 23:51:43.435 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.0367ms
+2024-12-16 23:51:43.695 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - null null
+2024-12-16 23:51:43.741 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 46.4089ms
+2024-12-16 23:51:47.840 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/category/all - null null
+2024-12-16 23:51:47.841 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:51:47.841 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.Response] GetCategories() on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-12-16 23:51:47.859 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+2024-12-16 23:51:47.860 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-16 23:51:47.861 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.GetCategories (Movie.API) in 19.3228ms
+2024-12-16 23:51:47.861 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:51:47.861 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/category/all - 200 null application/json; charset=utf-8 20.5184ms
+2024-12-16 23:54:49.052 +07:00 [INF] User profile is available. Using 'C:\Users\phuoc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-16 23:54:49.257 +07:00 [INF] Now listening on: https://localhost:7039
+2024-12-16 23:54:49.257 +07:00 [INF] Now listening on: http://localhost:5203
+2024-12-16 23:54:49.261 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-16 23:54:49.261 +07:00 [INF] Hosting environment: Development
+2024-12-16 23:54:49.262 +07:00 [INF] Content root path: D:\Workplace\MoviesApp\movie-api\Movie.API
+2024-12-16 23:54:50.344 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/index.html - null null
+2024-12-16 23:54:50.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/index.html - 200 null text/html;charset=utf-8 350.9047ms
+2024-12-16 23:54:50.885 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_vs/browserLink - null null
+2024-12-16 23:54:50.885 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-16 23:54:50.888 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.1106ms
+2024-12-16 23:54:50.928 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.1786ms
+2024-12-16 23:54:51.246 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - null null
+2024-12-16 23:54:51.452 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 206.1909ms
+2024-12-16 23:55:09.753 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/category/all - null null
+2024-12-16 23:55:09.780 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:55:09.794 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.Response] GetCategories() on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-12-16 23:55:11.006 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+2024-12-16 23:55:11.248 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-16 23:55:11.273 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.GetCategories (Movie.API) in 1476.739ms
+2024-12-16 23:55:11.274 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:55:11.279 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/category/all - 200 null application/json; charset=utf-8 1525.8704ms
+2024-12-16 23:56:02.221 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7039/api/category/update/1 - application/json 125
+2024-12-16 23:56:02.226 +07:00 [INF] CORS policy execution successful.
+2024-12-16 23:56:02.226 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.UpdateCategory (Movie.API)'
+2024-12-16 23:56:02.244 +07:00 [INF] Route matched with {action = "UpdateCategory", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCategory(Int32, Movie.API.Requests.UpdateCategoryRequest) on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-12-16 23:56:02.411 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__request_Id_0
+2024-12-16 23:56:02.425 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__request_Name_0='?' (Size = 30)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+WHERE [c].[Name] = @__request_Name_0
+2024-12-16 23:56:02.508 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = DateTime2), @p2='?' (Size = 30)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Categories] SET [IsActive] = @p0, [LastModifiedDate] = @p1, [Slug] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2024-12-16 23:56:02.520 +07:00 [INF] Executing OkObjectResult, writing value of type 'Movie.API.Responses.UpdateCategoryResponse'.
+2024-12-16 23:56:02.521 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.UpdateCategory (Movie.API) in 277.7702ms
+2024-12-16 23:56:02.522 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.UpdateCategory (Movie.API)'
+2024-12-16 23:56:02.522 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7039/api/category/update/1 - 200 null application/json; charset=utf-8 300.5159ms
+2024-12-16 23:56:09.746 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/category/all - null null
+2024-12-16 23:56:09.746 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:56:09.747 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.Response] GetCategories() on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-12-16 23:56:09.763 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+2024-12-16 23:56:09.764 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-12-16 23:56:09.765 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.GetCategories (Movie.API) in 17.8975ms
+2024-12-16 23:56:09.765 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-12-16 23:56:09.765 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/category/all - 200 null application/json; charset=utf-8 19.3146ms

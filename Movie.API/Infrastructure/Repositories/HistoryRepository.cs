@@ -20,11 +20,11 @@ namespace Movie.API.Infrastructure.Repositories
         }
         public async Task<PaginatedList<History>> GetAllAsync(int pageNumber, int pageSize, string userId)
         {
-            var historys = await _historySet.Where(x => x.UserId == userId).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            var count = historys.Count();
+            var histories = await _historySet.Where(x => x.UserId == userId).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+            var count = histories.Count();
             var totalPages = (int)Math.Ceiling(count / (double)pageSize);
 
-            return new PaginatedList<History>(historys, pageNumber, totalPages);
+            return new PaginatedList<History>(histories, pageNumber, totalPages);
         }
     }
 }

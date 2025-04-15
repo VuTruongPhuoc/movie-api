@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Movie.API.Models.Domain.Entities;
 
 namespace Movie.API.Infrastructure.Data.Configuration

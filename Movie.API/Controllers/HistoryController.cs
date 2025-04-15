@@ -24,7 +24,7 @@ namespace Movie.API.Controllers
         [HttpGet("all")]
         public async Task<Response> GetHistories(int pageNumber = 1, int pageSize = 10)
         {
-            string userid = HttpContext.User.FindFirstValue("UserId");
+            string userid = HttpContext.User.FindFirstValue("UserId")!;
             var query = new GetHistoriesQuery()
             {
                 UserId = userid,
@@ -40,7 +40,7 @@ namespace Movie.API.Controllers
         [HttpPost("add")]
         public async Task<Response> AddHistory([FromBody] AddHistoryRequest model)
         {
-            string userid = HttpContext.User.FindFirstValue("UserId");
+            string userid = HttpContext.User.FindFirstValue("UserId")!;
             var command = new AddHistoryCommand();
             command.UserId = userid;
             CustomMapper.Mapper.Map<AddHistoryRequest, AddHistoryCommand>(model, command);

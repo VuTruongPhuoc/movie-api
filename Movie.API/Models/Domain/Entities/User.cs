@@ -11,15 +11,15 @@ namespace Movie.API.Models.Domain.Entities
 {
     public class User : IdentityUser
     {
-        public string? DisplayName { get; set; }
-        public string? Avatar { get; set; }
-        public string? AvatarUrl { get; set; }
-        public string? RefreshToken { get; set; }
-        public DateTime RefreshTokenExpiry { get; set; }
-        public virtual ICollection<Review> Reviews { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
-        public virtual ICollection<Track> Tracks { get; set; }
-        public virtual ICollection<History> Histories { get; set; }
+        public string? DisplayName { get; set; } = default!;
+        public string? Avatar { get; set; } = default!;
+        public string? AvatarUrl { get; set; } = default!;
+        public string? RefreshToken { get; set; } = default!;
+        public DateTime RefreshTokenExpiry { get; set; } = default!;
+        public virtual ICollection<Review> Reviews { get; set; } = default!;
+        public virtual ICollection<Comment> Comments { get; set; } = default!;
+        public virtual ICollection<Feedback> Feedbacks { get; set; } = default!;
+        public virtual ICollection<Track> Tracks { get; set; } = default!;
+        public virtual ICollection<History> Histories { get; set; } = default!;
     }
 }

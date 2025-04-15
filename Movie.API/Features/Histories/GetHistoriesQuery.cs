@@ -6,7 +6,7 @@ namespace Movie.API.Features.Histories
 {
     public class GetHistoriesQuery : IRequest<Response>
     {
-        public string UserId { get; set; }
-        public Pagination Pagination { get; set; }
+        public string UserId { get; set; } = default!;
+        public Pagination Pagination { get; set; } = default!;
     }
 }

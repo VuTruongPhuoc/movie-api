@@ -15,7 +15,7 @@ namespace Movie.API.Features.Users
         private readonly MovieDbContext _dbContext;
         private readonly IUserRepository _userRepository;
         private readonly UserManager<User> _userManager;
-        public UpdateUserCommandHandler(MovieDbContext dbContext,IUserRepository userRepository, UserManager<User> userManager)
+        public UpdateUserCommandHandler(MovieDbContext dbContext, IUserRepository userRepository, UserManager<User> userManager)
         {
             _dbContext = dbContext;
             _userRepository = userRepository;
@@ -35,7 +35,7 @@ namespace Movie.API.Features.Users
             }
             var checkuserdisplayname = await _dbContext.Users.SingleOrDefaultAsync(x => x.DisplayName == request.DisplayName);
             var checkuseremail = await _userManager.FindByEmailAsync(request.Email);
-            if(checkuserdisplayname?.DisplayName != user.DisplayName && checkuserdisplayname != null || checkuseremail?.Email != user.Email && checkuseremail != null)
+            if (checkuserdisplayname?.DisplayName != user.DisplayName && checkuserdisplayname != null || checkuseremail?.Email != user.Email && checkuseremail != null)
             {
                 return await Task.FromResult(new UpdateUserResponse()
                 {
@@ -45,8 +45,8 @@ namespace Movie.API.Features.Users
                 });
             }
 
-            CustomMapper.Mapper.Map<UpdateUserCommand,User>(request, user);
-            await _userRepository.UpdateAsync(user);
+            CustomMapper.Mapper.Map<UpdateUserCommand, User>(request, user);
+            _userRepository.UpdateAsync(user);
             await _userRepository.SaveAsync();
 
             return await Task.FromResult(new UpdateUserResponse()

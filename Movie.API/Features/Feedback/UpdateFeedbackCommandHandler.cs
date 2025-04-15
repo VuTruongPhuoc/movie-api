@@ -33,7 +33,7 @@ namespace Movie.API.Features.Feedbacks
             }
             CustomMapper.Mapper.Map<UpdateFeedbackCommand, Feedback>(request, feedback);
             feedback.LastModifiedDate = DateTime.UtcNow;
-            await _FeedbackRepository.UpdateAsync(feedback);
+            _FeedbackRepository.UpdateAsync(feedback);
             await _FeedbackRepository.SaveAsync();
             return await Task.FromResult(new UpdateFeedbackResponse()
             {

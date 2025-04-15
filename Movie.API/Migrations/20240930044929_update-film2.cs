@@ -5,7 +5,7 @@
 namespace Movie.API.Migrations
 {
     /// <inheritdoc />
-    public partial class updatefilm2 : Migration
+    public partial class Updatefilm2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

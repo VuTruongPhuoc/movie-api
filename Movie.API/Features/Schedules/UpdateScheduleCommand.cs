@@ -6,6 +6,6 @@ namespace Movie.API.Features.Schedules
 {
     public class UpdateScheduleCommand : UpdateScheduleRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

@@ -2,21 +2,21 @@
 {
     public class UserDTO
     {
-        public string Id { get; set; }
-        public string UserName { get; set; }
-        public string DisplayName { get; set; }
-        public string Email { get; set; }
-        public string? PhoneNumber { get; set; }
-        public string? Avatar {  get; set; }
-        public string? AvatarUrl { get; set; }
-        public string RoleName { get; set; }
+        public string Id { get; set; } = default!;
+        public string UserName { get; set; } = default!;
+        public string DisplayName { get; set; } = default!;
+        public string Email { get; set; } = default!;
+        public string? PhoneNumber { get; set; } = default!;
+        public string? Avatar { get; set; }
+        public string? AvatarUrl { get; set; } = default!;
+        public string RoleName { get; set; } = default!;
 
     }
     public class UserAvatar
     {
-        public string UserName { get; set; }
-        public string? Avatar { get; set; }
-        public string? AvatarUrl { get; set; }
+        public string UserName { get; set; } = default!;
+        public string? Avatar { get; set; } = default!;
+        public string? AvatarUrl { get; set; } = default!;
 
     }
 }

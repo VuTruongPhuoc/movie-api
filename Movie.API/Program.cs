@@ -1,21 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Hosting;
+﻿using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Movie.API.Controllers;
 using Movie.API.Infrastructure.Data;
 using Movie.API.Infrastructure.Repositories;
 using Movie.API.Models.Domain.Entities;
 using Serilog;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Text.Json;
 
 namespace Movie.API
 {
@@ -26,7 +16,7 @@ namespace Movie.API
             var builder = WebApplication.CreateBuilder(args);
 
             //Add configuration Dbcontext
-            builder.Services.AddDbContext<MovieDbContext>(options => 
+            builder.Services.AddDbContext<MovieDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("MovieAppDb")));
 
             //Add serilog to the container
@@ -42,7 +32,7 @@ namespace Movie.API
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            
+
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddAuthenticationConfiguration(builder.Configuration);
             builder.Services.AddServices();
@@ -56,9 +46,9 @@ namespace Movie.API
                 policy.WithOrigins("*")
                     .AllowAnyMethod()
                     .AllowAnyHeader();
-                    
+
             }));
-           
+
             builder.Services.AddIdentity<User, Role>(config =>
             {
                 config.SignIn.RequireConfirmedEmail = false;
@@ -69,11 +59,11 @@ namespace Movie.API
             builder.Services.Configure<IdentityOptions>(options =>
             {
                 // Thiết lập về Password
-                options.Password.RequireDigit = false; 
-                options.Password.RequireLowercase = false; 
-                options.Password.RequireNonAlphanumeric = false; 
-                options.Password.RequireUppercase = false;  
-                options.Password.RequiredLength = 2; 
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 2;
                 options.Password.RequiredUniqueChars = 0;
 
                 // Thiết lập về đăng nhập
@@ -129,11 +119,11 @@ namespace Movie.API
 
             //app.UseMiddleware<ErrorHandlingMiddleware>();
 
-            app.UseEndpoints(enpoints =>
+            app.UseEndpoints(endpoints =>
             {
                 //enpoints.MapGet("/", () => "Hello World!");
-                enpoints.MapGet("api/testenpoints",
-                    context => context.Response.WriteAsync(builder.Configuration.GetValue<string>("JWT:Secret")));
+                endpoints?.MapGet("api/testEndpoints",
+                    context => context.Response.WriteAsync(builder.Configuration.GetValue<string>("JWT:Secret")!));
             });
 
             app.MapControllers();

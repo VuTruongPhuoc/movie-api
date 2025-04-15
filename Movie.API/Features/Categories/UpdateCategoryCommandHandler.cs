@@ -19,7 +19,7 @@ namespace Movie.API.Features.Categories
             _dbContext = dbContext;
         }
         public async Task<Response> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
-        {             
+        {
             var category = await _dbContext.Categories.AsNoTracking().SingleOrDefaultAsync(x => x.Id == request.Id);
             if (category is null)
             {
@@ -40,9 +40,9 @@ namespace Movie.API.Features.Categories
                     Message = "Thể loại đã tồn tại",
                 });
             }
-            CustomMapper.Mapper.Map<UpdateCategoryCommand, Category>(request, category);
-            category.LastModifiedDate = DateTime.UtcNow;
-            await _categoryRepository.UpdateAsync(category);
+            CustomMapper.Mapper.Map<UpdateCategoryCommand, Category>(request, category!);
+            category!.LastModifiedDate = DateTime.UtcNow;
+            _categoryRepository.UpdateAsync(category);
             await _categoryRepository.SaveAsync();
             return await Task.FromResult(new UpdateCategoryResponse()
             {

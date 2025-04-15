@@ -13,7 +13,7 @@ namespace Movie.API.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
     [Migration("20241001050409_update-film_posterurl")]
-    partial class updatefilm_posterurl
+    partial class Updatefilm_posterurl
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

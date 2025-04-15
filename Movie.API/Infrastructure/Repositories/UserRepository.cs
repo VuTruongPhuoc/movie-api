@@ -10,14 +10,14 @@ namespace Movie.API.Infrastructure.Repositories
     {
         Task<bool> ChangeRoleAsync(string userName, string roleName);
         Task<bool> DeleteUserAsync(string username);
-        Task<User> GetByNameAsync(string userName);
+        Task<User?> GetByNameAsync(string userName);
     }
-    public class UserRepository : GenericRepository<User>,IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
         private readonly MovieDbContext _dbContext;
-        private readonly UserManager<User> _userManager; 
+        private readonly UserManager<User> _userManager;
         private readonly RoleManager<Role> _roleManager;
-        public UserRepository(MovieDbContext dbContext,UserManager<User> userManager, RoleManager<Role> roleManager) : base(dbContext)
+        public UserRepository(MovieDbContext dbContext, UserManager<User> userManager, RoleManager<Role> roleManager) : base(dbContext)
         {
             _dbContext = dbContext;
             _userManager = userManager;
@@ -26,18 +26,20 @@ namespace Movie.API.Infrastructure.Repositories
         public async Task<bool> ChangeRoleAsync(string userName, string roleName)
         {
             var user = await _userManager.FindByNameAsync(userName);
-            var userrole = await _dbContext.UserRoles.SingleOrDefaultAsync(x => x.UserId == user.Id);
-            var currentRole = await _roleManager.FindByIdAsync(userrole.RoleId);
-            await _userManager.RemoveFromRoleAsync(user, currentRole.Name.ToString());
+            if (user is null) return false;
+            var userRole = await _dbContext.UserRoles.SingleOrDefaultAsync(x => x.UserId == user.Id);
+            var currentRole = await _roleManager.FindByIdAsync(userRole?.RoleId ?? string.Empty);
+            await _userManager.RemoveFromRoleAsync(user, currentRole?.Name?.ToString() ?? string.Empty);
             await _userManager.AddToRoleAsync(user, roleName);
+
             return true;
         }
-        public async Task<User> AddAsync(User entity)
+        public async new Task<User> AddAsync(User entity)
         {
             await _userManager.CreateAsync(entity);
             return await Task.FromResult(entity);
-        }  
-        public async Task<User> UpdateAsync(User entity)
+        }
+        public async new Task<User> UpdateAsync(User entity)
         {
             await _userManager.UpdateAsync(entity);
             return await Task.FromResult(entity);
@@ -45,14 +47,15 @@ namespace Movie.API.Infrastructure.Repositories
         public async Task<bool> DeleteUserAsync(string username)
         {
             var user = await _userManager.FindByNameAsync(username);
+            if (user is null) return false;
             await _userManager.DeleteAsync(user);
-            return await Task.FromResult(true);
+            return true;
         }
 
-        public async Task<User> GetByNameAsync(string userName)
+        public async Task<User?> GetByNameAsync(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
-            return await Task.FromResult(user);
+            return user;
         }
     }
 }

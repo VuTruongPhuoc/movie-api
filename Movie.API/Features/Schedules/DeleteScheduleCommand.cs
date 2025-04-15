@@ -6,6 +6,6 @@ namespace Movie.API.Features.Schedules
 {
     public class DeleteScheduleCommand : DeleteScheduleRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

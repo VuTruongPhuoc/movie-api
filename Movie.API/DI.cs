@@ -70,7 +70,7 @@ namespace Movie.API
                     }
                 });
             });
-            var key = Encoding.ASCII.GetBytes(configuration["JWT:Secret"]);
+            var key = Encoding.ASCII.GetBytes(configuration["JWT:Secret"]!);
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

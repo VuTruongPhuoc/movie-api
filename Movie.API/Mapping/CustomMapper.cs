@@ -23,9 +23,10 @@ namespace Movie.API.AutoMapper
     {
         private static readonly Lazy<IMapper> Lazy = new Lazy<IMapper>(() =>
         {
-            var config = new MapperConfiguration(cfg => {
+            var config = new MapperConfiguration(cfg =>
+            {
                 // This line ensures that internal properties are also mapped over.
-                cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
+                cfg.ShouldMapProperty = p => p.GetMethod!.IsPublic || p.GetMethod.IsAssembly;
                 cfg.AddProfile<UserProfile>();
                 cfg.AddProfile<FilmProfile>();
                 cfg.AddProfile<RoleProfile>();
@@ -46,7 +47,7 @@ namespace Movie.API.AutoMapper
 
         public static IMapper Mapper => Lazy.Value;
     }
-    public class UserProfile: Profile
+    public class UserProfile : Profile
     {
         public UserProfile()
         {
@@ -60,8 +61,8 @@ namespace Movie.API.AutoMapper
             CreateMap<User, ChangeImageRequest>().ReverseMap();
             CreateMap<User, UserAvatar>().ReverseMap();
         }
-    } 
-    public class FilmProfile: Profile
+    }
+    public class FilmProfile : Profile
     {
         public FilmProfile()
         {
@@ -80,14 +81,14 @@ namespace Movie.API.AutoMapper
             CreateMap<PaginatedList<Film>, PaginatedList<FilmFilter>>().ReverseMap();
         }
     }
-    public class RoleProfile: Profile
+    public class RoleProfile : Profile
     {
         public RoleProfile()
         {
             CreateMap<Role, RoleDTO>().ReverseMap();
         }
     }
-    public class CategoryProfile: Profile
+    public class CategoryProfile : Profile
     {
         public CategoryProfile()
         {
@@ -146,7 +147,7 @@ namespace Movie.API.AutoMapper
             CreateMap<AddCommentRequest, AddCommentCommand>().ReverseMap();
             CreateMap<UpdateCommentCommand, UpdateCommentRequest>().ReverseMap();
             CreateMap<PaginatedList<Comment>, PaginatedList<CommentDTO>>().ReverseMap();
-        }   
+        }
     }
     public class FeedbackProfile : Profile
     {

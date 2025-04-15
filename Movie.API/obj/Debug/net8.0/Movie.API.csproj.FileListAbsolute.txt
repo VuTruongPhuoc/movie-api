@@ -24,7 +24,6 @@ D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\staticwebassets\msbu
 D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Movie.API.props
 D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\staticwebassets.pack.json
 D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\scopedcss\bundle\Movie.API.styles.css
-D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\Movie.API.csproj.CopyComplete
 D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\Movie.API.dll
 D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\refint\Movie.API.dll
 D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\Movie.API.pdb
@@ -85,7 +84,6 @@ D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Serilog.Settings.Con
 D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Serilog.Sinks.File.dll
-D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\System.Text.Json.dll
 D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Humanizer.dll
 D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -159,4 +157,7 @@ D:\Workplace\MoviesApp\Movie-api\Movie.API\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Workplace\MoviesApp\Movie-api\Movie.API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\Workplace\MoviesApp\Movie-api\Movie.API\bin\Debug\net8.0\MailKit.dll
 D:\Workplace\MoviesApp\Movie-api\Movie.API\bin\Debug\net8.0\MimeKit.dll
-D:\Workplace\MoviesApp\Movie-api\Movie.API\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\Workplace\MoviesApp\movie-api\Movie.API\bin\Debug\net8.0\Movie.API.staticwebassets.endpoints.json
+D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\staticwebassets\msbuild.Movie.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Workplace\MoviesApp\movie-api\Movie.API\obj\Debug\net8.0\Movie.API.csproj.Up2Date

@@ -19,7 +19,7 @@ namespace Movie.API.Features.Countries
         }
         public async Task<Response> Handle(DeleteCountryCommand request, CancellationToken cancellationToken)
         {
-            if(request.Id == null)
+            if (request == null)
             {
                 return await Task.FromResult(new DeleteCountryResponse()
                 {

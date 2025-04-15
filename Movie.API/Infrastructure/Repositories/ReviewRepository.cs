@@ -8,7 +8,7 @@ namespace Movie.API.Infrastructure.Repositories
     public interface IReviewRepository : IGenericRepository<Review>
     {
         Task<List<Review>> GetAllAsync(int filmId);
-        Task<Review> GetByFilmAsync(int filmid, string userid);
+        Task<Review?> GetByFilmAsync(int filmid, string userid);
     }
     public class ReviewRepository : GenericRepository<Review>, IReviewRepository
     {
@@ -25,7 +25,7 @@ namespace Movie.API.Infrastructure.Repositories
 
             return reviews;
         }
-        public async Task<Review> GetByFilmAsync(int filmid, string userid)
+        public async Task<Review?> GetByFilmAsync(int filmid, string userid)
         {
             var review = await _reviewSet.FirstOrDefaultAsync(x => x.FilmId == filmid & x.UserId == userid);
             return review;

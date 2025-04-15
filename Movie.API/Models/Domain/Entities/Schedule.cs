@@ -5,8 +5,8 @@ namespace Movie.API.Models.Domain.Entities
     public class Schedule : BaseDomainEntity
     {
         public string Name { get; set; } = default!;
-        public string? Description { get; set; }
+        public string? Description { get; set; } = default!;
 
-        public virtual ICollection<Film> Films { get; set; }
+        public virtual ICollection<Film> Films { get; set; } = default!;
     }
 }

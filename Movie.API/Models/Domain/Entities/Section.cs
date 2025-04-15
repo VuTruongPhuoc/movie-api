@@ -9,7 +9,7 @@ namespace Movie.API.Models.Domain.Entities
 {
     public class Section : BaseDomainEntity
     {
-        public string Name { get; set; }
-        public virtual ICollection<Episode> Episodes { get; set; } 
+        public string Name { get; set; } = default!;
+        public virtual ICollection<Episode> Episodes { get; set; } = default!;
     }
 }

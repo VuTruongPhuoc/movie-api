@@ -24,7 +24,7 @@ namespace Movie.API.Controllers
         [HttpGet("all")]
         public async Task<Response> GetTracks(int pageNumber = 1, int pageSize = 10)
         {
-            string userid = HttpContext.User.FindFirstValue("UserId");
+            string userid = HttpContext.User.FindFirstValue("UserId")!;
             var query = new GetTracksQuery()
             {
                 UserId = userid,
@@ -39,7 +39,7 @@ namespace Movie.API.Controllers
         [HttpPost("add")]
         public async Task<Response> AddTrack([FromBody] AddTrackRequest model)
         {
-            string userid = HttpContext.User.FindFirstValue("UserId");
+            string userid = HttpContext.User.FindFirstValue("UserId")!;
             var command = new AddTrackCommand();
             command.UserId = userid;
             CustomMapper.Mapper.Map<AddTrackRequest, AddTrackCommand>(model, command);

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Movie.API.Migrations
 {
     /// <inheritdoc />
-    public partial class updateadd_feedback : Migration
+    public partial class Updateadd_feedback : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

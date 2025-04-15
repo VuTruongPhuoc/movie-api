@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Workplace\\MoviesApp\\movie-api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|d:\\workplace\\moviesapp\\movie-api\\movie.api\\models\\domain\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|solutionrelative:movie.api\\models\\domain\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|d:\\workplace\\moviesapp\\movie-api\\movie.api\\infrastructure\\repositories\\accountmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|solutionrelative:movie.api\\infrastructure\\repositories\\accountmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|d:\\workplace\\moviesapp\\movie-api\\movie.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|solutionrelative:movie.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|d:\\workplace\\moviesapp\\movie-api\\movie.api\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|solutionrelative:movie.api\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|d:\\workplace\\moviesapp\\movie-api\\movie.api\\features\\roles\\addrolecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|solutionrelative:movie.api\\features\\roles\\addrolecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|d:\\workplace\\moviesapp\\movie-api\\movie.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0026DEDA-400A-41C4-9D7A-2029E2B4D41F}|Movie.API\\Movie.API.csproj|solutionrelative:movie.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Models\\Domain\\Entities\\Role.cs",
+              "RelativeDocumentMoniker": "Movie.API\\Models\\Domain\\Entities\\Role.cs",
+              "ToolTip": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Models\\Domain\\Entities\\Role.cs",
+              "RelativeToolTip": "Movie.API\\Models\\Domain\\Entities\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T16:15:20.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddRoleCommandHandler.cs",
+              "DocumentMoniker": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Features\\Roles\\AddRoleCommandHandler.cs",
+              "RelativeDocumentMoniker": "Movie.API\\Features\\Roles\\AddRoleCommandHandler.cs",
+              "ToolTip": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Features\\Roles\\AddRoleCommandHandler.cs",
+              "RelativeToolTip": "Movie.API\\Features\\Roles\\AddRoleCommandHandler.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAtwBgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T15:34:36.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "Movie.API\\Controllers\\RoleController.cs",
+              "ToolTip": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "Movie.API\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAtwCcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T15:34:36.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountManager.cs",
+              "DocumentMoniker": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Infrastructure\\Repositories\\AccountManager.cs",
+              "RelativeDocumentMoniker": "Movie.API\\Infrastructure\\Repositories\\AccountManager.cs",
+              "ToolTip": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Infrastructure\\Repositories\\AccountManager.cs",
+              "RelativeToolTip": "Movie.API\\Infrastructure\\Repositories\\AccountManager.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAtwDsAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T15:34:36.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Movie.API\\appsettings.json",
+              "ToolTip": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\appsettings.json",
+              "RelativeToolTip": "Movie.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-15T15:40:41.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Program.cs",
+              "RelativeDocumentMoniker": "Movie.API\\Program.cs",
+              "ToolTip": "D:\\Workplace\\MoviesApp\\movie-api\\Movie.API\\Program.cs",
+              "RelativeToolTip": "Movie.API\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAlwBMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:51:53.595Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

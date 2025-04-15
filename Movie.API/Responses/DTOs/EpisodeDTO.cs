@@ -2,13 +2,13 @@
 {
     public class EpisodeDTO
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Slug { get; set; }
-        public string FilmName { get; set; }
-        public string SectionName { get; set; }
-        public string Link { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime LastModifiedDate { get; set; }
+        public int Id { get; set; } = default!;
+        public string Name { get; set; } = default!;
+        public string Slug { get; set; } = default!;
+        public string FilmName { get; set; } = default!;
+        public string SectionName { get; set; } = default!;
+        public string Link { get; set; } = default!;
+        public DateTime CreateDate { get; set; } = default!;
+        public DateTime LastModifiedDate { get; set; } = default!;
     }
 }

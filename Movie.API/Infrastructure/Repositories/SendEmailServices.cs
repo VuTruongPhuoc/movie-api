@@ -5,11 +5,11 @@ namespace Movie.API.Infrastructure.Repositories
 {
     public class SendEmail
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string DisplayName { get; set; }
-        public string Host { get; set; }
-        public int Port { get; set; }
+        public string Email { get; set; } = default!;
+        public string Password { get; set; } = default!;
+        public string DisplayName { get; set; } = default!;
+        public string Host { get; set; } = default!;
+        public int Port { get; set; } = default!;
 
 
     }
@@ -46,7 +46,7 @@ namespace Movie.API.Infrastructure.Repositories
                 await smtp.SendAsync(message);
             }
 
-            catch (Exception ex)
+            catch
             {
                 // Gửi mail thất bại, nội dung email sẽ lưu vào thư mục mailssave
                 System.IO.Directory.CreateDirectory("mailssave");

@@ -1,0 +1,115 @@
+2024-11-21 21:25:00.613 +07:00 [INF] User profile is available. Using 'C:\Users\phuoc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-21 21:25:00.898 +07:00 [INF] Creating key {dc3ab1da-7d48-4202-a443-44ccb9c04bf5} with creation date 2024-11-21 14:25:00Z, activation date 2024-11-23 09:54:56Z, and expiration date 2025-02-19 14:25:00Z.
+2024-11-21 21:25:00.977 +07:00 [INF] Writing data to file 'C:\Users\phuoc\AppData\Local\ASP.NET\DataProtection-Keys\key-dc3ab1da-7d48-4202-a443-44ccb9c04bf5.xml'.
+2024-11-21 21:25:01.405 +07:00 [INF] Now listening on: https://localhost:7039
+2024-11-21 21:25:01.405 +07:00 [INF] Now listening on: http://localhost:5203
+2024-11-21 21:25:01.500 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-21 21:25:01.501 +07:00 [INF] Hosting environment: Development
+2024-11-21 21:25:01.501 +07:00 [INF] Content root path: D:\Workplace\MoviesApp\movie-api\Movie.API
+2024-11-21 21:25:09.756 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/index.html - null null
+2024-11-21 21:25:10.773 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/index.html - 200 null text/html;charset=utf-8 1024.0884ms
+2024-11-21 21:25:11.006 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-21 21:25:11.006 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/_vs/browserLink - null null
+2024-11-21 21:25:11.542 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 542.6936ms
+2024-11-21 21:25:12.193 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1206.9241ms
+2024-11-21 21:25:12.425 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - null null
+2024-11-21 21:25:13.382 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 957.1665ms
+2024-11-21 21:25:18.840 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/category/all - null null
+2024-11-21 21:25:18.844 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/film/all - null null
+2024-11-21 21:25:19.050 +07:00 [INF] CORS policy execution successful.
+2024-11-21 21:25:19.051 +07:00 [INF] CORS policy execution successful.
+2024-11-21 21:25:19.079 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-11-21 21:25:19.079 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.FilmController.GetFilms (Movie.API)'
+2024-11-21 21:25:19.137 +07:00 [INF] Route matched with {action = "GetFilms", controller = "Film"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.DataRespone] GetFilms() on controller Movie.API.Controllers.FilmController (Movie.API).
+2024-11-21 21:25:19.137 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.Response] GetCategories() on controller Movie.API.Controllers.CategoryController (Movie.API).
+2024-11-21 21:25:19.442 +07:00 [INF] Executing action method Movie.API.Controllers.CategoryController.GetCategories (Movie.API) - Validation state: "Valid"
+2024-11-21 21:25:21.027 +07:00 [INF] Executing action method Movie.API.Controllers.FilmController.GetFilms (Movie.API) - Validation state: "Valid"
+2024-11-21 21:25:21.723 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-11-21 21:25:22.813 +07:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[CountryId], [f].[CreateDate], [f].[Description], [f].[Image], [f].[IsActive], [f].[LastModifiedDate], [f].[Name], [f].[number_of_episodes], [f].[OriginName], [f].[Poster], [f].[ScheduleId], [f].[Slug], [f].[Status], [f].[Time], [f].[Trailer], [f].[Type], [f].[Year], [s].[Id], [c].[Id], [t].[FilmId], [t].[CategoryId], [t].[Id], [t].[CreateDate], [t].[Description], [t].[IsActive], [t].[LastModifiedDate], [t].[Name], [t].[Slug], [t].[Status], [s].[CreateDate], [s].[Description], [s].[IsActive], [s].[LastModifiedDate], [s].[Name], [s].[Status], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Status], [r].[Id], [r].[CreateDate], [r].[FilmId], [r].[IsActive], [r].[LastModifiedDate], [r].[Rate], [r].[Status], [r].[UserId]
+FROM [Films] AS [f]
+INNER JOIN [Schedule] AS [s] ON [f].[ScheduleId] = [s].[Id]
+INNER JOIN [Countries] AS [c] ON [f].[CountryId] = [c].[Id]
+LEFT JOIN (
+    SELECT [f0].[FilmId], [f0].[CategoryId], [c0].[Id], [c0].[CreateDate], [c0].[Description], [c0].[IsActive], [c0].[LastModifiedDate], [c0].[Name], [c0].[Slug], [c0].[Status]
+    FROM [FilmCategories] AS [f0]
+    INNER JOIN [Categories] AS [c0] ON [f0].[CategoryId] = [c0].[Id]
+) AS [t] ON [f].[Id] = [t].[FilmId]
+LEFT JOIN [Reviews] AS [r] ON [f].[Id] = [r].[FilmId]
+ORDER BY [f].[Id], [s].[Id], [c].[Id], [t].[FilmId], [t].[CategoryId], [t].[Id]
+2024-11-21 21:25:22.813 +07:00 [INF] Executed DbCommand (104ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Slug], [c].[Status]
+FROM [Categories] AS [c]
+2024-11-21 21:25:23.399 +07:00 [INF] Executed action method Movie.API.Controllers.CategoryController.GetCategories (Movie.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3944.2873ms.
+2024-11-21 21:25:23.445 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-11-21 21:25:23.504 +07:00 [INF] Executed action Movie.API.Controllers.CategoryController.GetCategories (Movie.API) in 4208.1293ms
+2024-11-21 21:25:23.507 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.CategoryController.GetCategories (Movie.API)'
+2024-11-21 21:25:23.513 +07:00 [INF] Executed action method Movie.API.Controllers.FilmController.GetFilms (Movie.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2482.9164ms.
+2024-11-21 21:25:23.543 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-11-21 21:25:23.555 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/category/all - 200 null application/json; charset=utf-8 4719.3229ms
+2024-11-21 21:25:23.577 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/film/all - null null
+2024-11-21 21:25:23.631 +07:00 [INF] Executed action Movie.API.Controllers.FilmController.GetFilms (Movie.API) in 4351.9957ms
+2024-11-21 21:25:23.636 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.FilmController.GetFilms (Movie.API)'
+2024-11-21 21:25:23.655 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/film/all - 200 null application/json; charset=utf-8 4814.4412ms
+2024-11-21 21:25:23.656 +07:00 [INF] CORS policy execution successful.
+2024-11-21 21:25:23.660 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.FilmController.GetFilms (Movie.API)'
+2024-11-21 21:25:23.663 +07:00 [INF] Route matched with {action = "GetFilms", controller = "Film"}. Executing controller action with signature System.Threading.Tasks.Task`1[Movie.API.Responses.DataRespone] GetFilms() on controller Movie.API.Controllers.FilmController (Movie.API).
+2024-11-21 21:25:23.711 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/tram-than-20242601122658.jpg - null null
+2024-11-21 21:25:23.877 +07:00 [INF] Executing action method Movie.API.Controllers.FilmController.GetFilms (Movie.API) - Validation state: "Valid"
+2024-11-21 21:25:23.939 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[CountryId], [f].[CreateDate], [f].[Description], [f].[Image], [f].[IsActive], [f].[LastModifiedDate], [f].[Name], [f].[number_of_episodes], [f].[OriginName], [f].[Poster], [f].[ScheduleId], [f].[Slug], [f].[Status], [f].[Time], [f].[Trailer], [f].[Type], [f].[Year], [s].[Id], [c].[Id], [t].[FilmId], [t].[CategoryId], [t].[Id], [t].[CreateDate], [t].[Description], [t].[IsActive], [t].[LastModifiedDate], [t].[Name], [t].[Slug], [t].[Status], [s].[CreateDate], [s].[Description], [s].[IsActive], [s].[LastModifiedDate], [s].[Name], [s].[Status], [c].[CreateDate], [c].[Description], [c].[IsActive], [c].[LastModifiedDate], [c].[Name], [c].[Status], [r].[Id], [r].[CreateDate], [r].[FilmId], [r].[IsActive], [r].[LastModifiedDate], [r].[Rate], [r].[Status], [r].[UserId]
+FROM [Films] AS [f]
+INNER JOIN [Schedule] AS [s] ON [f].[ScheduleId] = [s].[Id]
+INNER JOIN [Countries] AS [c] ON [f].[CountryId] = [c].[Id]
+LEFT JOIN (
+    SELECT [f0].[FilmId], [f0].[CategoryId], [c0].[Id], [c0].[CreateDate], [c0].[Description], [c0].[IsActive], [c0].[LastModifiedDate], [c0].[Name], [c0].[Slug], [c0].[Status]
+    FROM [FilmCategories] AS [f0]
+    INNER JOIN [Categories] AS [c0] ON [f0].[CategoryId] = [c0].[Id]
+) AS [t] ON [f].[Id] = [t].[FilmId]
+LEFT JOIN [Reviews] AS [r] ON [f].[Id] = [r].[FilmId]
+ORDER BY [f].[Id], [s].[Id], [c].[Id], [t].[FilmId], [t].[CategoryId], [t].[Id]
+2024-11-21 21:25:24.070 +07:00 [INF] Sending file. Request path: '/tram-than-20242601122658.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\tram-than-20242601122658.jpg'
+2024-11-21 21:25:24.074 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/tram-than-20242601122658.jpg - 200 1296602 image/jpeg 363.2654ms
+2024-11-21 21:25:24.089 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/one-piece-20242601122651.jpg - null null
+2024-11-21 21:25:24.237 +07:00 [INF] Executed action method Movie.API.Controllers.FilmController.GetFilms (Movie.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 357.2065ms.
+2024-11-21 21:25:24.272 +07:00 [INF] Executing ObjectResult, writing value of type 'Movie.API.Responses.DataRespone'.
+2024-11-21 21:25:24.314 +07:00 [INF] Executed action Movie.API.Controllers.FilmController.GetFilms (Movie.API) in 638.4177ms
+2024-11-21 21:25:24.317 +07:00 [INF] Executed endpoint 'Movie.API.Controllers.FilmController.GetFilms (Movie.API)'
+2024-11-21 21:25:24.350 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/api/film/all - 200 null application/json; charset=utf-8 753.4449ms
+2024-11-21 21:25:24.564 +07:00 [INF] Sending file. Request path: '/one-piece-20242601122651.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\one-piece-20242601122651.jpg'
+2024-11-21 21:25:24.569 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/one-piece-20242601122651.jpg - 200 1570246 image/jpeg 480.0971ms
+2024-11-21 21:25:24.576 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/canh-gioi-20241201011258.jpg - null null
+2024-11-21 21:25:24.609 +07:00 [INF] Sending file. Request path: '/canh-gioi-20241201011258.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\canh-gioi-20241201011258.jpg'
+2024-11-21 21:25:24.614 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/canh-gioi-20241201011258.jpg - 200 65040 image/jpeg 35.8213ms
+2024-11-21 21:25:24.619 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/thon-tinh-20243501023515.jpg - null null
+2024-11-21 21:25:24.890 +07:00 [INF] Sending file. Request path: '/thon-tinh-20243501023515.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\thon-tinh-20243501023515.jpg'
+2024-11-21 21:25:24.894 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/thon-tinh-20243501023515.jpg - 200 1508543 image/jpeg 272.7847ms
+2024-11-21 21:25:24.900 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/than-an-vu20242401122443.jpg - null null
+2024-11-21 21:25:25.073 +07:00 [INF] Sending file. Request path: '/than-an-vu20242401122443.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\than-an-vu20242401122443.jpg'
+2024-11-21 21:25:25.077 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/than-an-vu20242401122443.jpg - 200 836507 image/jpeg 175.5698ms
+2024-11-21 21:25:25.084 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/one-piece-20244401084438.jpg - null null
+2024-11-21 21:25:25.472 +07:00 [INF] Sending file. Request path: '/one-piece-20244401084438.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\one-piece-20244401084438.jpg'
+2024-11-21 21:25:25.476 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/one-piece-20244401084438.jpg - 200 1952896 image/jpeg 390.8209ms
+2024-11-21 21:25:25.483 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/tram-than-20244401084432.jpg - null null
+2024-11-21 21:25:25.814 +07:00 [INF] Sending file. Request path: '/tram-than-20244401084432.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\tram-than-20244401084432.jpg'
+2024-11-21 21:25:25.820 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/tram-than-20244401084432.jpg - 200 1494815 image/jpeg 335.1367ms
+2024-11-21 21:25:25.827 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/vinh-sinh-20244401084427.jpg - null null
+2024-11-21 21:25:27.438 +07:00 [INF] Sending file. Request path: '/vinh-sinh-20244401084427.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\vinh-sinh-20244401084427.jpg'
+2024-11-21 21:25:27.442 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/vinh-sinh-20244401084427.jpg - 200 8274811 image/jpeg 1613.2277ms
+2024-11-21 21:25:27.455 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/than-an-vu20244401084411.jpg - null null
+2024-11-21 21:25:27.652 +07:00 [INF] Sending file. Request path: '/than-an-vu20244401084411.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\than-an-vu20244401084411.jpg'
+2024-11-21 21:25:27.657 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/than-an-vu20244401084411.jpg - 200 988397 image/jpeg 199.8407ms
+2024-11-21 21:25:27.667 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/tien-nghic20240701010719.jpg - null null
+2024-11-21 21:25:27.738 +07:00 [INF] Sending file. Request path: '/tien-nghic20240701010719.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\tien-nghic20240701010719.jpg'
+2024-11-21 21:25:27.744 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/tien-nghic20240701010719.jpg - 200 116815 image/jpeg 73.8973ms
+2024-11-21 21:25:27.777 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/bay-vien-n20242801022814.jpg - null null
+2024-11-21 21:25:27.830 +07:00 [INF] Sending file. Request path: '/bay-vien-n20242801022814.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\bay-vien-n20242801022814.jpg'
+2024-11-21 21:25:27.834 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/bay-vien-n20242801022814.jpg - 200 133533 image/jpeg 55.0189ms
+2024-11-21 21:25:27.839 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/Content/Images/thon-tinh-20243501023509.jpg - null null
+2024-11-21 21:25:28.120 +07:00 [INF] Sending file. Request path: '/thon-tinh-20243501023509.jpg'. Physical path: 'D:\Workplace\MoviesApp\movie-api\Movie.API\Content\Images\thon-tinh-20243501023509.jpg'
+2024-11-21 21:25:28.124 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7039/Content/Images/thon-tinh-20243501023509.jpg - 200 1379309 image/jpeg 283.1112ms
+2024-11-21 21:25:36.766 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7039/api/film/getbytype/0?pagenumber=1&pagesize=20 - null null
+2024-11-21 21:25:36.788 +07:00 [INF] CORS policy execution successful.
+2024-11-21 21:25:36.792 +07:00 [INF] Executing endpoint 'Movie.API.Controllers.FilmController.GetByType (Movie.API)'
+2024-11-21 21:25:36.812 +07:00 [INF] Route matched with {action = "GetByType", controller = "Film"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByType(Int32, Int32, Int32) on controller Movie.API.Controllers.FilmController (Movie.API).
+2024-11-21 21:25:36.922 +07:00 [INF] Executing action method Movie.API.Controllers.FilmController.GetByType (Movie.API) - Validation state: "Valid"

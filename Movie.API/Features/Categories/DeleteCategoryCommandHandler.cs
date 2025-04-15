@@ -19,7 +19,7 @@ namespace Movie.API.Features.Categories
         }
         public async Task<Response> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            if(request.Id == null)
+            if (request == null)
             {
                 return await Task.FromResult(new DeleteCategoryResponse()
                 {

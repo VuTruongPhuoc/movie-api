@@ -6,6 +6,6 @@ namespace Movie.API.Features.Reviews
 {
     public class GetReviewsQuery : IRequest<Response>
     {
-        public int FilmId { get; set; }
+        public int FilmId { get; set; } = default!;
     }
 }

@@ -6,6 +6,6 @@ namespace Movie.API.Features.Countries
 {
     public class UpdateCountryCommand : UpdateCountryRequest, IRequest<Response>
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = default!;
     }
 }

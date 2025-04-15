@@ -19,7 +19,7 @@ namespace Movie.API.Features.Schedules
         }
         public async Task<Response> Handle(DeleteScheduleCommand request, CancellationToken cancellationToken)
         {
-            if(request.Id == null)
+            if (request is null)
             {
                 return await Task.FromResult(new DeleteScheduleResponse()
                 {

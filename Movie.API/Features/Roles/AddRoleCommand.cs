@@ -7,6 +7,6 @@ namespace Movie.API.Features.Roles
 {
     public class AddRoleCommand : IRequest<AddRoleResponse>
     {
-        public RoleDTO Role {  get; set; }
+        public RoleDTO Role { get; set; } = default!;
     }
 }

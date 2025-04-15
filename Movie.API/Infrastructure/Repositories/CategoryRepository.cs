@@ -6,8 +6,8 @@ namespace Movie.API.Infrastructure.Repositories
 {
     public interface ICategoryRepository : IGenericRepository<Category>
     {
-        Task<List<Category>> GetAllAsync();
-        Task<List<Category>> GetByNameAsync(string name);
+        Task<List<Category>?> GetAllAsync();
+        Task<List<Category>?> GetByNameAsync(string name);
     }
     public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
@@ -20,16 +20,14 @@ namespace Movie.API.Infrastructure.Repositories
 
         }
 
-        public async Task<List<Category>> GetAllAsync()
+        public async Task<List<Category>?> GetAllAsync()
         {
-            return await _categorySet.ToListAsync();
+            return await _categorySet.ToListAsync() ?? [];
         }
 
-        public async Task<List<Category>> GetByNameAsync(string name)
+        public async Task<List<Category>?> GetByNameAsync(string name)
         {
-            return await _categorySet.Where(x => x.Name == name).ToListAsync();
+            return await _categorySet.Where(x => x.Name == name).ToListAsync() ?? [];
         }
-
-
     }
 }

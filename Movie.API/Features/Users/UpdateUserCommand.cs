@@ -6,6 +6,6 @@ namespace Movie.API.Features.Users
 {
     public class UpdateUserCommand : UpdateUserRequest, IRequest<UpdateUserResponse>
     {
-        public string UserName { get; set; }
+        public string UserName { get; set; } = default!;
     }
 }

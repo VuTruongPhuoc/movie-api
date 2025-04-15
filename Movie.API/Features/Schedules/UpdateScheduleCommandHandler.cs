@@ -19,8 +19,8 @@ namespace Movie.API.Features.Schedules
             _dbContext = dbContext;
         }
         public async Task<Response> Handle(UpdateScheduleCommand request, CancellationToken cancellationToken)
-        {   
-            var schedule = await _dbContext.Schedules.AsNoTracking().SingleOrDefaultAsync(x => x.Id == request.Id);
+        {
+            var schedule = await _dbContext.Schedules.SingleOrDefaultAsync(x => x.Id == request.Id);
             if (schedule is null)
             {
                 return await Task.FromResult(new UpdateScheduleResponse()
@@ -40,9 +40,8 @@ namespace Movie.API.Features.Schedules
                     Message = "Lịch đã tồn tại",
                 });
             }
-            CustomMapper.Mapper.Map<UpdateScheduleCommand,Schedule>(request, schedule);
-            schedule.LastModifiedDate = DateTime.UtcNow;
-            await _scheduleRepository.UpdateAsync(schedule);
+            CustomMapper.Mapper.Map<UpdateScheduleCommand, Schedule>(request, schedule!);
+            schedule!.LastModifiedDate = DateTime.UtcNow;
             await _scheduleRepository.SaveAsync();
             return await Task.FromResult(new UpdateScheduleResponse()
             {

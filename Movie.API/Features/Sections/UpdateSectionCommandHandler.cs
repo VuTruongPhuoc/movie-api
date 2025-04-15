@@ -40,9 +40,9 @@ namespace Movie.API.Features.Sections
                     Message = "Phần đã tồn tại",
                 });
             }
-            CustomMapper.Mapper.Map<UpdateSectionCommand, Section>(request, section);
-            section.LastModifiedDate = DateTime.UtcNow;
-            await _sectionRepository.UpdateAsync(section);
+            CustomMapper.Mapper.Map<UpdateSectionCommand, Section>(request, section!);
+            section!.LastModifiedDate = DateTime.UtcNow;
+            _sectionRepository.UpdateAsync(section);
             await _sectionRepository.SaveAsync();
             return await Task.FromResult(new UpdateSectionResponse()
             {
